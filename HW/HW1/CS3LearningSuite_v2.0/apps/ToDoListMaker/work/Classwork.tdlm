@@ -1,0 +1,39 @@
+
+{
+    "name":"Course Work",
+    "owner":"McKilla Gorilla",
+    "items":[
+        {
+            "category":"CSE 214",
+            "description":"Homework 2",
+            "start_date":"2018-02-21",
+            "end_date":"2018-02-23",
+            "assigned_to":"",
+            "completed":false
+        },
+        {
+            "category":"CSE 219",
+            "description":"Homework 1",
+            "start_date":"2018-02-14",
+            "end_date":"2018-02-21",
+            "assigned_to":"",
+            "completed":false
+        },
+        {
+            "category":"CSE 214",
+            "description":"Homework 1",
+            "start_date":"2018-02-12",
+            "end_date":"2018-02-14",
+            "assigned_to":"",
+            "completed":false
+        },
+        {
+            "category":"CSE 219",
+            "description":"Homework 2",
+            "start_date":"2018-02-23",
+            "end_date":"2018-03-02",
+            "assigned_to":"",
+            "completed":false
+        }
+    ]
+}

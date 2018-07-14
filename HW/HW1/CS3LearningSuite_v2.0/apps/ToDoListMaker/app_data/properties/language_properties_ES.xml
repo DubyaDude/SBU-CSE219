@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This XML file provides all the text to be used when the application
+    is to be displayed in English.
+-->
+<properties>
+    <property_list>
+
+        <!-- ENGLISH LANGUAGE SETTINGS FOR DESKTOP JAVA FRAMEWORK CONTROLS -->
+
+        <!-- WELCOME DIALOG TEXT -->
+        <property name="WELCOME_DIALOG_TITLE"               value="Bienvenido a Metro Map Maker"></property>
+        <property name="WELCOME_DIALOG_RECENT_WORK_LABEL"   value="Trabajo Reciente"></property>
+        <property name="WELCOME_DIALOG_CREATE_BUTTON_TEXT"  value="Crear un Nuevo Mapa de Metro"></property>
+
+        <!-- GENERIC APP ERROR MESSAGES -->
+        <property name="APP_ERROR_TITLE"            value="Error de la Aplicación"></property>
+        <property name="APP_ERROR_CONTENT"          value="Un Error Ocurrido en la Aplicación"></property>
+
+        <!-- PROPERTIES ERROR MESSAGES -->
+        <property name="PROPERTIES_ERROR_TITLE"     value="Error de Archivo de Propiedades"></property>
+        <property name="PROPERTIES_ERROR_CONTENT"   value="Hubo un Error al Cargar un Archivo de Propiedades"></property>
+
+        <!-- FILE TOOLBAR TOOLTIPS -->
+        <property name="NEW_BUTTON_TOOLTIP"         value="Nuevo Mapa"></property>
+        <property name="LOAD_BUTTON_TOOLTIP"        value="Cargar Mapa"></property>
+        <property name="CLOSE_BUTTON_TOOLTIP"       value="Cerrar Mapa"></property>
+        <property name="SAVE_BUTTON_TOOLTIP"        value="Guardar Mapa"></property>
+        <property name="EXPORT_BUTTON_TOOLTIP"      value="Exportar Mapa"></property>
+        <property name="EXIT_BUTTON_TOOLTIP"        value="Salir de la Aplicación"></property>
+
+        <!-- CLIPBOARD TOOLBAR TOOLTIPS -->
+        <property name="CUT_BUTTON_TOOLTIP"         value="Cortar"></property>
+        <property name="COPY_BUTTON_TOOLTIP"        value="Dupdo"></property>
+        <property name="PASTE_BUTTON_TOOLTIP"       value="Pegar"></property>
+
+        <!-- UNDO TOOLBAR TOOLTIPS -->
+        <property name="UNDO_BUTTON_TOOLTIP"        value="Deshacer"></property>
+        <property name="REDO_BUTTON_TOOLTIP"        value="Rehacer"></property>
+
+        <!-- HELP TOOLBAR TOOLTIPS -->
+        <property name="HELP_BUTTON_TOOLTIP"        value="Ayuda"></property>
+        <property name="LANGUAGE_BUTTON_TOOLTIP"    value="Cambiar Idioma"></property>
+        <property name="ABOUT_BUTTON_TOOLTIP"       value="Acerca de"></property>
+
+        <!-- NEW FEEDBACK DIALOGS -->	
+        <property name="NEW_SUCCESS_TITLE"      value="Nuevo Completo"></property>
+        <property name="NEW_SUCCESS_CONTENT"	value="Trabajo Creado pero aún no Guardado"></property>
+        <property name="NEW_ERROR_TITLE"        value="Advertencia: Error"></property>
+        <property name="NEW_ERROR_CONTENT"      value="Se produjo un error al crear un nuevo trabajo."></property>
+
+        <!-- LOAD FEEDBACK DIALOGS -->
+        <property name="LOAD_WORK_TITLE"        value="Cargar Trabajo"></property>
+        <property name="LOAD_SUCCESS_TITLE"     value="Carga Completa"></property>
+        <property name="LOAD_SUCCESS_CONTENT"   value="El archivo se cargó con éxito y ahora se puede editar."></property>
+        <property name="LOAD_ERROR_TITLE"       value="Error de Carga"></property>        
+        <property name="LOAD_ERROR_CONTENT"     value="Cargando ha fallado Probablemente haya un problema de File Formatting."></property>
+
+        <!-- SAVE FEEDBACK DIALOGS -->
+        <property name="SAVE_WORK_TITLE"        value="Ahorre Trabajo"></property>
+        <property name="SAVE_SUCCESS_TITLE"     value="Guardar Completo"></property>
+        <property name="SAVE_SUCCESS_CONTENT"   value="El Archivo está Guardado."></property>
+        <property name="SAVE_ERROR_TITLE"       value="Guardar Error"></property>
+        <property name="SAVE_ERROR_CONTENT"     value="El ahorro ha fallado. Probablemente debido a un problema de acceso a archivos."></property>
+        <property name="SAVE_VERIFY_TITLE"	value="¿Guardar trabajo no guardado?"></property>
+        <property name="SAVE_VERIFY_CONTENT"	value="¿Le gustaría guardar su trabajo no guardado primero?"></property>
+
+        <!-- ABOUT DIALOG -->
+        <property name="ABOUT_TITLE"            value="Acerca de M3"></property>
+        <property name="ABOUT_CONTENT"          value="M3, el Metro Map Maker - Debugging Enterprises - © 2017"></property>
+
+
+        <!-- ENGLISH LANGUAGE SETTINGS SPECIFICALLY FOR M3 CONTROLS -->
+        
+        <!-- LINES PANE -->
+        <property name="M3_LINES_LABEL_TEXT"                value="Líneas de Metro"></property>
+        <property name="M3_LINES_COMBO_BOX_DEFAULT"         value="Seleccione una Línea"></property>
+        <property name="M3_EDIT_LINE_BUTTON_TOOLTIP"        value="Editar Propiedades de Línea Seleccionadas"></property>
+        <property name="M3_ADD_LINE_BUTTON_TOOLTIP"         value="Agregar Nueva Línea"></property>
+        <property name="M3_REMOVE_LINE_BUTTON_TOOLTIP"      value="Eliminar la Línea Seleccionada"></property>
+        <property name="M3_ADD_STATIONS_BUTTON_TOOLTIP"     value="Añadir Estaciones a la Línea Seleccionada"></property>
+        <property name="M3_REMOVE_STATIONS_BUTTON_TOOLTIP"  value="Eliminar Estaciones de la Línea Seleccionada"></property>
+        <property name="M3_LIST_STATIONS_BUTTON_TOOLTIP"    value="Lista de Estaciones en la Línea Seleccionada"></property>
+
+        <!-- STATIONS PANE -->
+        <property name="M3_STATIONS_LABEL_TEXT"             value="Estaciones de Metro"></property>
+        <property name="M3_STATIONS_COMBO_BOX_DEFAULT"      value="Seleccione una Estación"></property>
+        <property name="M3_EDIT_STATION_BUTTON_TOOLTIP"     value="Editar Propiedades de Estaciones Seleccionadas"></property>
+        <property name="M3_ADD_STATION_BUTTON_TOOLTIP"      value="Agregar Nueva Estación de Metro"></property>
+        <property name="M3_REMOVE_STATION_BUTTON_TOOLTIP"   value="Eliminar Estación Seleccionada del Mapa"></property>
+        <property name="M3_SNAP_STATION_BUTTON_TOOLTIP"     value="Ajustar la Estación Seleccionada"></property>
+        <property name="M3_MOVE_LABEL_BUTTON_TOOLTIP"       value="Mueva la Etiqueta de la Estación Seleccionada"></property>
+        <property name="M3_ROTATE_LABEL_BUTTON_TOOLTIP"     value="Girar Etiqueta de Estación Seleccionada"></property>
+    
+        <!-- ROUTE PANE -->
+        <property name="M3_ROUTE_LABEL_TEXT"            value="Rutas de Metro"></property>
+       <property name="M3_FIND_ROUTE_BUTTON_TOOLTIP"   value="Encuentre una Ruta de Transferencia Mínima"></property>
+        <property name="M3_RESET_ROUTE_BUTTON_TOOLTIP"  value="Restablecer la Ruta"></property>
+
+        <!-- DECOR PANE -->
+        <property name="M3_DECOR_LABEL_TEXT"                        value="Decoración"></property>
+        <property name="M3_BACKGROUND_COLOR_TOOLTIP"                value="Cambiar el color de fondo"></property>
+        <property name="M3_SET_BACKGROUND_IMAGE_BUTTON_TOOLTIP"     value="Establecer la Imagen de Fondo del Mapa"></property>
+        <property name="M3_CLEAR_BACKGROUND_IMAGE_BUTTON_TOOLTIP"   value="Borrar la Imagen de Fondo del Mapa"></property>
+        <property name="M3_ADD_IMAGE_BUTTON_TOOLTIP"                value="Agregar Imagen al Mapa"></property>
+        <property name="M3_ADD_LABEL_BUTTON_TOOLTIP"                value="Agregar Etiqueta al Mapa"></property>
+        <property name="M3_REMOVE_ELEMENT_BUTTON_TOOLTIP"           value="Eliminar el Elemento Seleccionado del Mapa"></property>
+    
+        <!-- FONT PANE -->
+        <property name="M3_FONT_LABEL_TEXT"                 value="Fuente"></property>
+        <property name="M3_FONT_COLOR_TOOLTIP"              value="Fuente Color Tooltip"></property>
+        <property name="M3_BOLD_TOGGLE_BUTTON_TOOLTIP"      value="Haga que el texto seleccionado sea audaz"></property>
+        <property name="M3_ITALIC_TOGGLE_BUTTON_TOOLTIP"    value="Hacer el texto seleccionado en cursiva"></property>
+
+        <!-- NAVIGATION PANE -->
+        <property name="M3_NAVIGATION_LABEL_TEXT"           value="Navegación"></property>
+        <property name="M3_GRID_CHECKBOX_TEXT"              value="Mostrar cuadrícula"></property>
+        <property name="M3_ZOOM_IN_BUTTON_TOOLTIP"          value="Acercarse"></property>
+        <property name="M3_ZOOM_OUT_BUTTON_TOOLTIP"         value="Disminuir el Zoom"></property>
+        <property name="M3_SCALE_MAP_WIDTH_BUTTON_TOOLTIP"  value="Ancho del Mapa de Escala"></property>
+        <property name="M3_SCALE_MAP_HEIGHT_BUTTON_TOOLTIP" value="Altura del Mapa de Escala"></property>
+        <property name="M3_SCALE_MAP_BUTTON_TOOLTIP"        value="Mapa de Escala"></property>
+
+        <!-- LINE DIALOG -->
+        <property name="M3_LINE_DIALOG_ADD_HEADER_LABEL_TEXT"       value="Agregar Nueva Línea"></property>
+        <property name="M3_LINE_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="Editar Línea"></property>
+        <property name="M3_LINE_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="Nombre:"></property>
+        <property name="M3_LINE_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="Color:"></property>
+        <property name="M3_LINE_DIALOG_CIRCULAR_PROMPT_LABEL_TEXT"  value="Circular:"></property>
+        <property name="M3_LINE_DIALOG_OK_BUTTON_TEXT"              value="OK"></property>
+        <property name="M3_LINE_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
+
+        <!-- STATION DIALOG -->
+        <property name="M3_STATION_DIALOG_ADD_HEADER_LABEL_TEXT"       value="Agregar Nueva Estación"></property>
+        <property name="M3_STATION_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="Editar Estación"></property>
+        <property name="M3_STATION_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="Nombre:"></property>
+        <property name="M3_STATION_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="Color:"></property>
+        <property name="M3_STATION_DIALOG_OK_BUTTON_TEXT"              value="OK"></property>
+        <property name="M3_STATION_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
+        
+        <!-- MAP SIZE DIALOG -->
+        <property name="M3_MAP_SIZE_DIALOG_HEADER_LABEL_TEXT"           value="Cambiar el Tamaño del Mapa"></property>
+        <property name="M3_MAP_SIZE_DIALOG_WIDTH_PROMPT_LABEL_TEXT"     value="Anchura:"></property>
+        <property name="M3_MAP_SIZE_DIALOG_HEIGHT_PROMPT_LABEL_TEXT"    value="Altura:"></property>
+        <property name="M3_MAP_SIZE_DIALOG_OK_BUTTON_TEXT"              value="Ok"></property>
+        <property name="M3_MAP_SIZE_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
+        
+        <!-- TO SWITCH BACK TO ANOTHER LANGUAGE -->
+        <property name="LANGUAGE_DIALOG_TITLE"          value="Idioma de la Aplicación"></property>
+        <property name="LANGUAGE_DIALOG_HEADER_TEXT"    value="Elija un idioma"></property>
+        <property name="LANGUAGE_DIALOG_CONTENT_TEXT"   value="Seleccione un idioma para la interfaz de usuario."></property>
+
+        <property name="WORK_FILE_EXT"          value="m3"></property>
+	<property name="WORK_FILE_EXT_DESC"     value="Metro Map Maker Archivos"></property>
+
+    </property_list>
+    
+    <!-- M3 COMBO BOX CHOICES -->
+    <property_options_list>
+        <property_options name="M3_LINES_COMBO_BOX_OPTIONS">
+            <option>Seleccione una Línea</option>
+        </property_options>
+        <property_options name="M3_STATIONS_COMBO_BOX_OPTIONS">
+            <option>Seleccione una Estación</option>
+        </property_options>
+        <property_options name="M3_FONT_FAMILY_COMBO_BOX_OPTIONS">
+            <option>Dialog</option>
+            <option>DialogInput</option>
+            <option>Monospaced</option>
+            <option>Sans-serif</option>
+            <option>Serif</option>            
+        </property_options>
+    </property_options_list>
+</properties>

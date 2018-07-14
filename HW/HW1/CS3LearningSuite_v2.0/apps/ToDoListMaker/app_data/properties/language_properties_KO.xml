@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    This XML file provides all the text to be used when the application
+    is to be displayed in English.
+-->
+<properties>
+    <property_list>
+
+        <!-- ENGLISH LANGUAGE SETTINGS FOR DESKTOP JAVA FRAMEWORK CONTROLS -->
+
+        <!-- WELCOME DIALOG TEXT -->
+        <property name="WELCOME_DIALOG_TITLE"               value="메트로 맵 메이커에 오신 것을 환영합니다."></property>
+        <property name="WELCOME_DIALOG_RECENT_WORK_LABEL"   value="최근 작업"></property>
+        <property name="WELCOME_DIALOG_CREATE_BUTTON_TEXT"  value="새 메트로 맵 만들기"></property>
+
+        <!-- GENERIC APP ERROR MESSAGES -->
+        <property name="APP_ERROR_TITLE"            value="응용 프로그램 오류"></property>
+        <property name="APP_ERROR_CONTENT"          value="응용 프로그램에서 오류가 발생했습니다."></property>
+
+        <!-- PROPERTIES ERROR MESSAGES -->
+        <property name="PROPERTIES_ERROR_TITLE"     value="속성 파일 오류"></property>
+        <property name="PROPERTIES_ERROR_CONTENT"   value="속성 파일을로드하는 중 오류가 발생했습니다."></property>
+
+        <!-- FILE TOOLBAR TOOLTIPS -->
+        <property name="NEW_BUTTON_TOOLTIP"         value="새지도"></property>
+        <property name="LOAD_BUTTON_TOOLTIP"        value="지도로드"></property>
+        <property name="CLOSE_BUTTON_TOOLTIP"       value="지도 닫기"></property>
+        <property name="SAVE_BUTTON_TOOLTIP"        value="지도 저장"></property>
+        <property name="EXPORT_BUTTON_TOOLTIP"      value="지도 내보내기"></property>
+        <property name="EXIT_BUTTON_TOOLTIP"        value="출구"></property>
+
+        <!-- CLIPBOARD TOOLBAR TOOLTIPS -->
+        <property name="CUT_BUTTON_TOOLTIP"         value="자르다"></property>
+        <property name="COPY_BUTTON_TOOLTIP"        value="복사"></property>
+        <property name="PASTE_BUTTON_TOOLTIP"       value="붙여 넣기"></property>
+
+        <!-- UNDO TOOLBAR TOOLTIPS -->
+        <property name="UNDO_BUTTON_TOOLTIP"        value="실행 취소"></property>
+        <property name="REDO_BUTTON_TOOLTIP"        value="다시하기"></property>
+
+        <!-- HELP TOOLBAR TOOLTIPS -->
+        <property name="HELP_BUTTON_TOOLTIP"        value="도움말"></property>
+        <property name="LANGUAGE_BUTTON_TOOLTIP"    value="언어 변경"></property>
+        <property name="ABOUT_BUTTON_TOOLTIP"       value="정보"></property>
+
+        <!-- NEW FEEDBACK DIALOGS -->	
+        <property name="NEW_SUCCESS_TITLE"      value="새로운 완료"></property>
+        <property name="NEW_SUCCESS_CONTENT"	value="생성되었지만 아직 저장되지 않은 작업"></property>
+        <property name="NEW_ERROR_TITLE"        value="경고 : 오류"></property>
+        <property name="NEW_ERROR_CONTENT"      value="새 작업을 만드는 동안 오류가 발생했습니다."></property>
+
+        <!-- LOAD FEEDBACK DIALOGS -->
+        <property name="LOAD_WORK_TITLE"        value="작업로드"></property>
+        <property name="LOAD_SUCCESS_TITLE"     value="로드 완료"></property>
+        <property name="LOAD_SUCCESS_CONTENT"   value="파일이 성공적으로로드되었으며 이제 편집 할 수 있습니다."></property>
+        <property name="LOAD_ERROR_TITLE"       value="로딩 오류"></property>        
+        <property name="LOAD_ERROR_CONTENT"     value="로드가 실패했습니다. 파일 형성 문제가있을 가능성이 있습니다."></property>
+
+        <!-- SAVE FEEDBACK DIALOGS -->
+        <property name="SAVE_WORK_TITLE"        value="작업 저장"></property>
+        <property name="SAVE_SUCCESS_TITLE"     value="저장 완료"></property>
+        <property name="SAVE_SUCCESS_CONTENT"   value="파일이 저장됩니다."></property>
+        <property name="SAVE_ERROR_TITLE"       value="오류 저장"></property>
+        <property name="SAVE_ERROR_CONTENT"     value="저장하지 못했습니다. 파일 액세스 문제로 인한 것 같습니다."></property>
+        <property name="SAVE_VERIFY_TITLE"	value="저장되지 않은 작업을 저장 하시겠습니까?"></property>
+        <property name="SAVE_VERIFY_CONTENT"	value="저장되지 않은 작업을 먼저 저장 하시겠습니까?"></property>
+
+        <!-- ABOUT DIALOG -->
+        <property name="ABOUT_TITLE"            value="정보 M3"></property>
+        <property name="ABOUT_CONTENT"          value="M3, the Metro Map Maker - Debugging Enterprises - © 2017"></property>
+
+
+        <!-- ENGLISH LANGUAGE SETTINGS SPECIFICALLY FOR M3 CONTROLS -->
+        
+        <!-- LINES PANE -->
+        <property name="M3_LINES_LABEL_TEXT"                value="메트로 라인"></property>
+        <property name="M3_LINES_COMBO_BOX_DEFAULT"         value="선 선택"></property>
+        <property name="M3_EDIT_LINE_BUTTON_TOOLTIP"        value="선택한 선 특성 편집"></property>
+        <property name="M3_ADD_LINE_BUTTON_TOOLTIP"         value="새 줄 추가"></property>
+        <property name="M3_REMOVE_LINE_BUTTON_TOOLTIP"      value="선택한 라인 삭제"></property>
+        <property name="M3_ADD_STATIONS_BUTTON_TOOLTIP"     value="선택한 라인에 방송국 추가"></property>
+        <property name="M3_REMOVE_STATIONS_BUTTON_TOOLTIP"  value="선택한 회선에서 스테이션 제거"></property>
+        <property name="M3_LIST_STATIONS_BUTTON_TOOLTIP"    value="선택한 회선의 스테이션 나열"></property>
+
+        <!-- STATIONS PANE -->
+        <property name="M3_STATIONS_LABEL_TEXT"             value="메트로 역"></property>
+        <property name="M3_STATIONS_COMBO_BOX_DEFAULT"      value="스테이션 선택"></property>
+        <property name="M3_EDIT_STATION_BUTTON_TOOLTIP"     value="선택한 스테이션 등록 정보 편집"></property>
+        <property name="M3_ADD_STATION_BUTTON_TOOLTIP"      value="새 지하철역 추가"></property>
+        <property name="M3_REMOVE_STATION_BUTTON_TOOLTIP"   value="지도에서 선택한 역을 제거하십시오."></property>
+        <property name="M3_SNAP_STATION_BUTTON_TOOLTIP"     value="선택한 역 스냅하기"></property>
+        <property name="M3_MOVE_LABEL_BUTTON_TOOLTIP"       value="선택한 스테이션 레이블 이동"></property>
+        <property name="M3_ROTATE_LABEL_BUTTON_TOOLTIP"     value="선택한 스테이션 레이블 회전"></property>
+    
+        <!-- ROUTE PANE -->
+        <property name="M3_ROUTE_LABEL_TEXT"            value="메트로 노선"></property>
+       <property name="M3_FIND_ROUTE_BUTTON_TOOLTIP"   value="최소 전송 경로 찾기"></property>
+        <property name="M3_RESET_ROUTE_BUTTON_TOOLTIP"  value="경로 재설정"></property>
+
+        <!-- DECOR PANE -->
+        <property name="M3_DECOR_LABEL_TEXT"                        value="장식"></property>
+        <property name="M3_BACKGROUND_COLOR_TOOLTIP"                value="배경색 변경"></property>
+        <property name="M3_SET_BACKGROUND_IMAGE_BUTTON_TOOLTIP"     value="지도 배경 이미지 설정"></property>
+        <property name="M3_CLEAR_BACKGROUND_IMAGE_BUTTON_TOOLTIP"   value="지도 배경 이미지 지우기"></property>
+        <property name="M3_ADD_IMAGE_BUTTON_TOOLTIP"                value="지도에 이미지 추가"></property>
+        <property name="M3_ADD_LABEL_BUTTON_TOOLTIP"                value="지도에 라벨 추가"></property>
+        <property name="M3_REMOVE_ELEMENT_BUTTON_TOOLTIP"           value="지도에서 선택한 요소 제거"></property>
+    
+        <!-- FONT PANE -->
+        <property name="M3_FONT_LABEL_TEXT"                 value="글꼴"></property>
+        <property name="M3_FONT_COLOR_TOOLTIP"              value="글꼴 색 툴팁"></property>
+        <property name="M3_BOLD_TOGGLE_BUTTON_TOOLTIP"      value="선택한 텍스트를 굵게 표시"></property>
+        <property name="M3_ITALIC_TOGGLE_BUTTON_TOOLTIP"    value="선택한 텍스트를 기울임 꼴로 지정"></property>
+
+        <!-- NAVIGATION PANE -->
+        <property name="M3_NAVIGATION_LABEL_TEXT"           value="내비게이션"></property>
+        <property name="M3_GRID_CHECKBOX_TEXT"              value="그리드 표시"></property>
+        <property name="M3_ZOOM_IN_BUTTON_TOOLTIP"          value="확대"></property>
+        <property name="M3_ZOOM_OUT_BUTTON_TOOLTIP"         value="축소"></property>
+        <property name="M3_SCALE_MAP_WIDTH_BUTTON_TOOLTIP"  value="지도 크기 조정"></property>
+        <property name="M3_SCALE_MAP_HEIGHT_BUTTON_TOOLTIP" value="지도 높이 조정"></property>
+        <property name="M3_SCALE_MAP_BUTTON_TOOLTIP"        value="축척지도"></property>
+
+        <!-- LINE DIALOG -->
+        <property name="M3_LINE_DIALOG_ADD_HEADER_LABEL_TEXT"       value="새 줄 추가"></property>
+        <property name="M3_LINE_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="행 편집"></property>
+        <property name="M3_LINE_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="이름:"></property>
+        <property name="M3_LINE_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="색상:"></property>
+        <property name="M3_LINE_DIALOG_CIRCULAR_PROMPT_LABEL_TEXT"  value="원형:"></property>
+        <property name="M3_LINE_DIALOG_OK_BUTTON_TEXT"              value="확인"></property>
+        <property name="M3_LINE_DIALOG_CANCEL_BUTTON_TEXT"          value="취소"></property>
+
+        <!-- STATION DIALOG -->
+        <property name="M3_STATION_DIALOG_ADD_HEADER_LABEL_TEXT"       value="새 역 추가"></property>
+        <property name="M3_STATION_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="방송국 편집"></property>
+        <property name="M3_STATION_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="이름:"></property>
+        <property name="M3_STATION_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="색상:"></property>
+        <property name="M3_STATION_DIALOG_OK_BUTTON_TEXT"              value="확인"></property>
+        <property name="M3_STATION_DIALOG_CANCEL_BUTTON_TEXT"          value="취소"></property>
+        
+        <!-- MAP SIZE DIALOG -->
+        <property name="M3_MAP_SIZE_DIALOG_HEADER_LABEL_TEXT"           value="지도 크기 변경"></property>
+        <property name="M3_MAP_SIZE_DIALOG_WIDTH_PROMPT_LABEL_TEXT"     value="너비:"></property>
+        <property name="M3_MAP_SIZE_DIALOG_HEIGHT_PROMPT_LABEL_TEXT"    value="높이:"></property>
+        <property name="M3_MAP_SIZE_DIALOG_OK_BUTTON_TEXT"              value="확인"></property>
+        <property name="M3_MAP_SIZE_DIALOG_CANCEL_BUTTON_TEXT"          value="취소"></property>
+        
+        <!-- TO SWITCH BACK TO ANOTHER LANGUAGE -->
+        <property name="LANGUAGE_DIALOG_TITLE"          value="앱 언어 선택"></property>
+        <property name="LANGUAGE_DIALOG_HEADER_TEXT"    value="언어 선택"></property>
+        <property name="LANGUAGE_DIALOG_CONTENT_TEXT"   value="사용자 인터페이스의 언어를 선택하십시오."></property>
+
+        <property name="WORK_FILE_EXT"          value="m3"></property>
+	<property name="WORK_FILE_EXT_DESC"     value="메트로 맵 메이커 파일"></property>
+
+    </property_list>
+    
+    <!-- M3 COMBO BOX CHOICES -->
+    <property_options_list>
+        <property_options name="M3_LINES_COMBO_BOX_OPTIONS">
+            <option>선 선택</option>
+        </property_options>
+        <property_options name="M3_STATIONS_COMBO_BOX_OPTIONS">
+            <option>스테이션 선택</option>
+        </property_options>
+        <property_options name="LANGUAGE_OPTIONS">
+            <option>English</option>
+            <option>Korean</option>
+        </property_options>
+        <property_options name="M3_FONT_FAMILY_COMBO_BOX_OPTIONS">
+            <option>Dialog</option>
+            <option>DialogInput</option>
+            <option>Monospaced</option>
+            <option>Sans-serif</option>
+            <option>Serif</option>            
+        </property_options>
+    </property_options_list>
+</properties>
