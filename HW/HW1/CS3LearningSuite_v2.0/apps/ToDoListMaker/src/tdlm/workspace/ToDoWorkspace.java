@@ -45,6 +45,7 @@ import static tdlm.ToDoPropertyType.TDLM_ADD_ITEM_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_CATEGORY_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_COMPLETED_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_DESCRIPTION_COLUMN;
+import static tdlm.ToDoPropertyType.TDLM_ASSIGNED_TO_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_REMOVE_ITEM_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_TABLE_VIEW;
 import static tdlm.ToDoPropertyType.TDLM_NAME_OWNER_PANE;
@@ -103,14 +104,16 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         TableColumn categoryColumn      = tdlBuilder.buildTableColumn(  TDLM_CATEGORY_COLUMN,    itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn descriptionColumn   = tdlBuilder.buildTableColumn(  TDLM_DESCRIPTION_COLUMN, itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn startDateColumn     = tdlBuilder.buildTableColumn(  TDLM_START_DATE_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
-        TableColumn endDateColumn       = tdlBuilder.buildTableColumn(  TDLM_END_DATE_COLUMN,    itemsTable,           CLASS_TDLM_COLUMN);
+        TableColumn endDateColumn       = tdlBuilder.buildTableColumn(  TDLM_END_DATE_COLUMN,    itemsTable,         CLASS_TDLM_COLUMN);
+        TableColumn assignedToColumn    = tdlBuilder.buildTableColumn(  TDLM_ASSIGNED_TO_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn completedColumn     = tdlBuilder.buildTableColumn(  TDLM_COMPLETED_COLUMN,   itemsTable,         CLASS_TDLM_COLUMN);
 
         // SPECIFY THE TYPES FOR THE COLUMNS
         categoryColumn.setCellValueFactory(     new PropertyValueFactory<String,    String>("category"));
         descriptionColumn.setCellValueFactory(  new PropertyValueFactory<String,    String>("description"));
         startDateColumn.setCellValueFactory(    new PropertyValueFactory<LocalDate, String>("startDate"));
-        endDateColumn.setCellValueFactory(    new PropertyValueFactory<LocalDate, String>("endDate"));
+        endDateColumn.setCellValueFactory(      new PropertyValueFactory<LocalDate, String>("endDate"));
+        assignedToColumn.setCellValueFactory(   new PropertyValueFactory<String,    String>("assignedTo"));
         completedColumn.setCellValueFactory(    new PropertyValueFactory<Boolean,   String>("completed"));
 
 	// AND PUT EVERYTHING IN THE WORKSPACE

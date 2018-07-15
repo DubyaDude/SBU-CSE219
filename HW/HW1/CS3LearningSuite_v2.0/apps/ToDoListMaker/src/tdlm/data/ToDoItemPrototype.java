@@ -16,12 +16,14 @@ public class ToDoItemPrototype implements Cloneable {
     public static final String DEFAULT_CATEGORY = "?";
     public static final String DEFAULT_DESCRIPTION = "?";
     public static final LocalDate DEFAULT_DATE = LocalDate.now();
+    public static final String DEFAULT_ASSIGNEDTO = "?";
     public static final boolean DEFAULT_COMPLETED = false;
     
     final StringProperty category;
     final StringProperty description;
     final ObjectProperty<LocalDate> startDate;
     final ObjectProperty<LocalDate> endDate;
+    final StringProperty assignedTo;
     final BooleanProperty completed;
        
     public ToDoItemPrototype() {
@@ -29,15 +31,17 @@ public class ToDoItemPrototype implements Cloneable {
         description = new SimpleStringProperty(DEFAULT_DESCRIPTION);
         startDate = new SimpleObjectProperty(DEFAULT_DATE);
         endDate = new SimpleObjectProperty(DEFAULT_DATE);
+        assignedTo = new SimpleStringProperty(DEFAULT_ASSIGNEDTO);
         completed = new SimpleBooleanProperty(DEFAULT_COMPLETED);
     }
 
-    public ToDoItemPrototype(String initCategory, String initDescription, LocalDate initStartDate, LocalDate initEndDate, boolean initCompleted) {
+    public ToDoItemPrototype(String initCategory, String initDescription, LocalDate initStartDate, LocalDate initEndDate, String initAssignedTo, boolean initCompleted) {
         this();
         category.set(initCategory);
         description.set(initDescription);
         startDate.set(initStartDate);
         endDate.set(initEndDate);
+        assignedTo.set(initAssignedTo);
         completed.set(initCompleted);
     }
 
@@ -87,7 +91,18 @@ public class ToDoItemPrototype implements Cloneable {
     public ObjectProperty endDateProperty() {
         return endDate;
     }
+    
+    public String getAssignedTo() {
+        return assignedTo.get();
+    }
 
+    public void setAssignedTo(String value) {
+        assignedTo.set(value);
+    }
+
+    public StringProperty assignedToProperty() {
+        return assignedTo;
+    }
 
     public boolean isCompleted() {
         return completed.get();
@@ -106,6 +121,7 @@ public class ToDoItemPrototype implements Cloneable {
         setDescription(DEFAULT_DESCRIPTION);
         setStartDate(DEFAULT_DATE);
         setEndDate(DEFAULT_DATE);
+        setAssignedTo(DEFAULT_ASSIGNEDTO);
         setCompleted(DEFAULT_COMPLETED);
     }
 
@@ -114,6 +130,7 @@ public class ToDoItemPrototype implements Cloneable {
                                         description.getValue(), 
                                         startDate.getValue(), 
                                         endDate.getValue(),
+                                        assignedTo.getValue(),
                                         completed.getValue());
     }
     

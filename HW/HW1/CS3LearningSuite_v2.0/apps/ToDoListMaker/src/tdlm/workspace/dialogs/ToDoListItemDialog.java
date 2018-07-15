@@ -22,6 +22,7 @@ import tdlm.ToDoListMakerApp;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_ADD_HEADER_TEXT;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_CANCEL_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_CATEGORY_PROMPT;
+import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_COMPLETED_PROMPT;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_DIALOG_DESCRIPTION_PROMPT;
@@ -127,6 +128,8 @@ public class ToDoListItemDialog extends Stage {
         initGridNode(startDatePicker,       null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 3, 1, 1, false);
         initGridNode(endDateLabel,          TDLM_ITEM_DIALOG_END_DATE_PROMPT,       CLASS_TDLM_DIALOG_PROMPT,       0, 4, 1, 1, true);
         initGridNode(endDatePicker,         null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 4, 1, 1, false);
+        initGridNode(assignedToLabel,       TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT,     CLASS_TDLM_DIALOG_PROMPT,       0, 5, 1, 1, true);
+        initGridNode(assignedToTextField,     null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 5, 1, 1, false);
         initGridNode(completedLabel,        TDLM_ITEM_DIALOG_COMPLETED_PROMPT,      CLASS_TDLM_DIALOG_PROMPT,       0, 6, 2, 1, true);
         initGridNode(completedCheckBox,     TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX,   CLASS_TDLM_DIALOG_CHECK_BOX,    1, 6, 2, 1, false);
         initGridNode(okCancelPane,          null,                                   CLASS_TDLM_DIALOG_PANE,         0, 7, 3, 1, false);
@@ -169,7 +172,7 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
-        newItem = new ToDoItemPrototype(category, description, startDate, endDate, completed);
+        newItem = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
         this.hide();
     }
     
@@ -186,7 +189,7 @@ public class ToDoListItemDialog extends Stage {
         ToDoData data = (ToDoData)app.getDataComponent();
         if (editing) {
             if (data.isValidToDoItemEdit(itemToEdit, category, description, startDate, endDate, completed)) {
-                editItem = new ToDoItemPrototype(category, description, startDate, endDate, completed);
+                editItem = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
             }
             else {
                 // OPEN MESSAGE DIALOG EXPLAINING WHAT WENT WRONG
@@ -220,6 +223,7 @@ public class ToDoListItemDialog extends Stage {
         descriptionTextField.setText("");
         startDatePicker.setValue(LocalDate.now());
         endDatePicker.setValue(LocalDate.now());
+        assignedToTextField.setText("");
         completedCheckBox.selectedProperty().setValue(false);
         
         // WE ARE ADDING A NEW ONE, NOT EDITING
@@ -248,6 +252,7 @@ public class ToDoListItemDialog extends Stage {
         categoryTextField.setText(itemToEdit.getCategory());
         descriptionTextField.setText(itemToEdit.getDescription());
         startDatePicker.setValue(itemToEdit.getStartDate());
+        assignedToTextField.setText(itemToEdit.getAssignedTo());
         completedCheckBox.selectedProperty().setValue(itemToEdit.isCompleted());
                
         // AND OPEN THE DIALOG
