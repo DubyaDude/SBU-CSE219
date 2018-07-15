@@ -49,6 +49,7 @@ import static tdlm.ToDoPropertyType.TDLM_REMOVE_ITEM_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_TABLE_VIEW;
 import static tdlm.ToDoPropertyType.TDLM_NAME_OWNER_PANE;
 import static tdlm.ToDoPropertyType.TDLM_START_DATE_COLUMN;
+import static tdlm.ToDoPropertyType.TDLM_END_DATE_COLUMN;
 import tdlm.workspace.controllers.ItemsController;
 import tdlm.workspace.controllers.ItemsTableController;
 import static tdlm.workspace.style.TDLStyle.CLASS_TDLM_BOX;
@@ -102,12 +103,14 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         TableColumn categoryColumn      = tdlBuilder.buildTableColumn(  TDLM_CATEGORY_COLUMN,    itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn descriptionColumn   = tdlBuilder.buildTableColumn(  TDLM_DESCRIPTION_COLUMN, itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn startDateColumn     = tdlBuilder.buildTableColumn(  TDLM_START_DATE_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
+        TableColumn endDateColumn       = tdlBuilder.buildTableColumn(  TDLM_END_DATE_COLUMN,    itemsTable,           CLASS_TDLM_COLUMN);
         TableColumn completedColumn     = tdlBuilder.buildTableColumn(  TDLM_COMPLETED_COLUMN,   itemsTable,         CLASS_TDLM_COLUMN);
 
         // SPECIFY THE TYPES FOR THE COLUMNS
         categoryColumn.setCellValueFactory(     new PropertyValueFactory<String,    String>("category"));
         descriptionColumn.setCellValueFactory(  new PropertyValueFactory<String,    String>("description"));
         startDateColumn.setCellValueFactory(    new PropertyValueFactory<LocalDate, String>("startDate"));
+        endDateColumn.setCellValueFactory(    new PropertyValueFactory<LocalDate, String>("endDate"));
         completedColumn.setCellValueFactory(    new PropertyValueFactory<Boolean,   String>("completed"));
 
 	// AND PUT EVERYTHING IN THE WORKSPACE

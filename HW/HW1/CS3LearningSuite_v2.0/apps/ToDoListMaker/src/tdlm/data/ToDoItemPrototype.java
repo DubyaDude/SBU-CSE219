@@ -21,20 +21,23 @@ public class ToDoItemPrototype implements Cloneable {
     final StringProperty category;
     final StringProperty description;
     final ObjectProperty<LocalDate> startDate;
+    final ObjectProperty<LocalDate> endDate;
     final BooleanProperty completed;
        
     public ToDoItemPrototype() {
         category = new SimpleStringProperty(DEFAULT_CATEGORY);
         description = new SimpleStringProperty(DEFAULT_DESCRIPTION);
         startDate = new SimpleObjectProperty(DEFAULT_DATE);
+        endDate = new SimpleObjectProperty(DEFAULT_DATE);
         completed = new SimpleBooleanProperty(DEFAULT_COMPLETED);
     }
 
-    public ToDoItemPrototype(String initCategory, String initDescription, LocalDate initStartDate, boolean initCompleted) {
+    public ToDoItemPrototype(String initCategory, String initDescription, LocalDate initStartDate, LocalDate initEndDate, boolean initCompleted) {
         this();
         category.set(initCategory);
         description.set(initDescription);
         startDate.set(initStartDate);
+        endDate.set(initEndDate);
         completed.set(initCompleted);
     }
 
@@ -73,6 +76,18 @@ public class ToDoItemPrototype implements Cloneable {
     public ObjectProperty startDateProperty() {
         return startDate;
     }
+    public LocalDate getEndDate() {
+        return endDate.get();
+    }
+
+    public void setEndDate(LocalDate value) {
+        endDate.set(value);
+    }
+
+    public ObjectProperty endDateProperty() {
+        return endDate;
+    }
+
 
     public boolean isCompleted() {
         return completed.get();
@@ -90,6 +105,7 @@ public class ToDoItemPrototype implements Cloneable {
         setCategory(DEFAULT_CATEGORY);
         setDescription(DEFAULT_DESCRIPTION);
         setStartDate(DEFAULT_DATE);
+        setEndDate(DEFAULT_DATE);
         setCompleted(DEFAULT_COMPLETED);
     }
 
@@ -97,6 +113,7 @@ public class ToDoItemPrototype implements Cloneable {
         return new ToDoItemPrototype(   category.getValue(), 
                                         description.getValue(), 
                                         startDate.getValue(), 
+                                        endDate.getValue(),
                                         completed.getValue());
     }
     

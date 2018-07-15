@@ -60,6 +60,7 @@ public class ToDoFiles implements AppFileComponent {
     static final String JSON_CATEGORY = "category";
     static final String JSON_DESCRIPTION = "description";
     static final String JSON_START_DATE = "start_date";
+    static final String JSON_END_DATE = "end_date";
     static final String JSON_COMPLETED = "completed";
     static final String JSON_OWNER = "owner";
     static final String JSON_ITEMS = "items";
@@ -97,6 +98,7 @@ public class ToDoFiles implements AppFileComponent {
 		    .add(JSON_CATEGORY, item.getCategory())
 		    .add(JSON_DESCRIPTION, item.getDescription())
 		    .add(JSON_START_DATE, item.getStartDate().toString())
+                    .add(JSON_END_DATE, item.getStartDate().toString())
 		    .add(JSON_COMPLETED, item.isCompleted()).build();
 	    arrayBuilder.add(itemJson);
 	}
@@ -174,11 +176,14 @@ public class ToDoFiles implements AppFileComponent {
 	String category = jsonItem.getString(JSON_CATEGORY);
 	String description = jsonItem.getString(JSON_DESCRIPTION);
         String startDateText = jsonItem.getString(JSON_START_DATE);
+        String endDateText = jsonItem.getString(JSON_END_DATE);
         LocalDate startDate = LocalDate.parse(startDateText, DateTimeFormatter.ISO_DATE);
+        LocalDate endDate = LocalDate.parse(endDateText, DateTimeFormatter.ISO_DATE);
+        
         boolean completed = jsonItem.getBoolean(JSON_COMPLETED);
         
 	// THEN USE THE DATA TO BUILD AN ITEM
-        ToDoItemPrototype item = new ToDoItemPrototype(category, description, startDate, completed);
+        ToDoItemPrototype item = new ToDoItemPrototype(category, description, startDate, endDate, completed);
         
 	// ALL DONE, RETURN IT
 	return item;
