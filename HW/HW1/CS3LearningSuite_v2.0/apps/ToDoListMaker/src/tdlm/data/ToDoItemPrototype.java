@@ -16,7 +16,7 @@ public class ToDoItemPrototype implements Cloneable {
     public static final String DEFAULT_CATEGORY = "?";
     public static final String DEFAULT_DESCRIPTION = "?";
     public static final LocalDate DEFAULT_DATE = LocalDate.now();
-    public static final String DEFAULT_ASSIGNEDTO = "?";
+    public static final String DEFAULT_ASSIGNED_TO = "?";
     public static final boolean DEFAULT_COMPLETED = false;
     
     final StringProperty category;
@@ -31,7 +31,7 @@ public class ToDoItemPrototype implements Cloneable {
         description = new SimpleStringProperty(DEFAULT_DESCRIPTION);
         startDate = new SimpleObjectProperty(DEFAULT_DATE);
         endDate = new SimpleObjectProperty(DEFAULT_DATE);
-        assignedTo = new SimpleStringProperty(DEFAULT_ASSIGNEDTO);
+        assignedTo = new SimpleStringProperty(DEFAULT_ASSIGNED_TO);
         completed = new SimpleBooleanProperty(DEFAULT_COMPLETED);
     }
 
@@ -121,7 +121,7 @@ public class ToDoItemPrototype implements Cloneable {
         setDescription(DEFAULT_DESCRIPTION);
         setStartDate(DEFAULT_DATE);
         setEndDate(DEFAULT_DATE);
-        setAssignedTo(DEFAULT_ASSIGNEDTO);
+        setAssignedTo(DEFAULT_ASSIGNED_TO);
         setCompleted(DEFAULT_COMPLETED);
     }
 

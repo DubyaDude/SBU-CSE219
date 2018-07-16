@@ -132,6 +132,9 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         ownerTextField.textProperty().addListener(e->{
             app.getFileModule().markAsEdited(true);
         });
+        nameTextField.textProperty().addListener(e->{
+            app.getFileModule().markAsEdited(true);
+        });
         ItemsController itemsController = new ItemsController((ToDoListMakerApp)app);
         addItemButton.setOnAction(e->{
             itemsController.processAddItem();
