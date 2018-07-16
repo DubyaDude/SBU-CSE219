@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import tdlm.ToDoListMakerApp;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_TABLE_VIEW;
 import static tdlm.ToDoPropertyType.TDLM_OWNER_TEXT_FIELD;
+import static tdlm.ToDoPropertyType.TDLM_NAME_TEXT_FIELD;
 
 /**
  *
@@ -26,6 +27,7 @@ public class ToDoData implements AppDataComponent {
     ObservableList<ToDoItemPrototype> items;
     TableViewSelectionModel itemsSelectionModel;
     StringProperty ownerProperty;
+    StringProperty nameProperty;
     
     public ToDoData(ToDoListMakerApp initApp) {
         app = initApp;
@@ -38,6 +40,7 @@ public class ToDoData implements AppDataComponent {
         
         // AND FOR LIST NAME AND OWNER DATA
         ownerProperty = ((TextField)app.getGUIModule().getGUINode(TDLM_OWNER_TEXT_FIELD)).textProperty();
+        nameProperty = ((TextField)app.getGUIModule().getGUINode(TDLM_NAME_TEXT_FIELD)).textProperty();
     }
     
     public String getOwner() {
@@ -51,13 +54,22 @@ public class ToDoData implements AppDataComponent {
     public void setOwner(String initOwner) {
         ownerProperty.setValue(initOwner);
     }
-
+    
+    public String getName() {
+        return nameProperty.getValue();
+    }
+    
+    public void setName(String initOwner) {
+        nameProperty.setValue(initOwner);
+    }
+        
     @Override
     public void reset() {
         AppGUIModule gui = app.getGUIModule();
         
         // CLEAR OUT THE TEXT FIELDS
         ownerProperty.setValue("");
+        nameProperty.setValue("");
         
         // CLEAR OUT THE ITEMS FROM THE TABLE
         TableView tableView = (TableView)gui.getGUINode(TDLM_ITEMS_TABLE_VIEW);

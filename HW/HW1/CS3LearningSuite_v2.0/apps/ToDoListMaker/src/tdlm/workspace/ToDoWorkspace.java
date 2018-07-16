@@ -39,6 +39,9 @@ import static tdlm.ToDoPropertyType.TDLM_TO_DO_LIST_LABEL;
 import static tdlm.ToDoPropertyType.TDLM_OWNER_PANE;
 import static tdlm.ToDoPropertyType.TDLM_OWNER_LABEL;
 import static tdlm.ToDoPropertyType.TDLM_OWNER_TEXT_FIELD;
+import static tdlm.ToDoPropertyType.TDLM_NAME_PANE;
+import static tdlm.ToDoPropertyType.TDLM_NAME_LABEL;
+import static tdlm.ToDoPropertyType.TDLM_NAME_TEXT_FIELD;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_PANE;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_BUTTONS_PANE;
 import static tdlm.ToDoPropertyType.TDLM_ADD_ITEM_BUTTON;
@@ -49,6 +52,7 @@ import static tdlm.ToDoPropertyType.TDLM_ASSIGNED_TO_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_REMOVE_ITEM_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_TABLE_VIEW;
 import static tdlm.ToDoPropertyType.TDLM_NAME_OWNER_PANE;
+import static tdlm.ToDoPropertyType.TDLM_NAME_NAME_PANE;
 import static tdlm.ToDoPropertyType.TDLM_START_DATE_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_END_DATE_COLUMN;
 import tdlm.workspace.controllers.ItemsController;
@@ -84,15 +88,19 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         AppNodesBuilder tdlBuilder = app.getGUIModule().getNodesBuilder();
         
 	// THIS HOLDS ALL THE CONTROLS IN THE WORKSPACE
-	VBox toDoListPane           = tdlBuilder.buildVBox(TDLM_PANE,               null,           null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
+	VBox toDoListPane           = tdlBuilder.buildVBox(TDLM_PANE,                null,           null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,              FOCUS_TRAVERSABLE,      ENABLED);
         Label toDoListLabel         = tdlBuilder.buildLabel(TDLM_TO_DO_LIST_LABEL,   toDoListPane,   null,   CLASS_TDLM_BIG_HEADER, HAS_KEY_HANDLER,       FOCUS_TRAVERSABLE,      ENABLED);
 
         // THIS HAS THE DETAILS PANE COMPONENTS
-        HBox nameOwnerPane          = tdlBuilder.buildHBox(TDLM_NAME_OWNER_PANE,    toDoListPane,    null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,            FOCUS_TRAVERSABLE,      ENABLED);
-        HBox ownerPane              = tdlBuilder.buildHBox(TDLM_OWNER_PANE,         nameOwnerPane,    null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
-        Label ownerLabel            = tdlBuilder.buildLabel(TDLM_OWNER_LABEL,        ownerPane,      null,   CLASS_TDLM_PROMPT, HAS_KEY_HANDLER,           FOCUS_TRAVERSABLE,      ENABLED);
-        TextField ownerTextField    = tdlBuilder.buildTextField(TDLM_OWNER_TEXT_FIELD,   ownerPane,      null,   CLASS_TDLM_TEXT_FIELD, NO_KEY_HANDLER,       FOCUS_TRAVERSABLE,      ENABLED);
-
+        HBox nameOwnerPane          = tdlBuilder.buildHBox(TDLM_NAME_OWNER_PANE,       toDoListPane,   null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
+        HBox ownerPane              = tdlBuilder.buildHBox(TDLM_OWNER_PANE,            nameOwnerPane,  null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
+        Label ownerLabel            = tdlBuilder.buildLabel(TDLM_OWNER_LABEL,          ownerPane,      null,   CLASS_TDLM_PROMPT, HAS_KEY_HANDLER,          FOCUS_TRAVERSABLE,      ENABLED);
+        TextField ownerTextField    = tdlBuilder.buildTextField(TDLM_OWNER_TEXT_FIELD, ownerPane,      null,   CLASS_TDLM_TEXT_FIELD, NO_KEY_HANDLER,       FOCUS_TRAVERSABLE,      ENABLED);
+        HBox nameNamePane           = tdlBuilder.buildHBox(TDLM_NAME_NAME_PANE,        toDoListPane,   null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
+        HBox namePane               = tdlBuilder.buildHBox(TDLM_NAME_PANE,             nameOwnerPane,  null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,             FOCUS_TRAVERSABLE,      ENABLED);
+        Label nameLabel             = tdlBuilder.buildLabel(TDLM_NAME_LABEL,           namePane,       null,   CLASS_TDLM_PROMPT, HAS_KEY_HANDLER,          FOCUS_TRAVERSABLE,      ENABLED);
+        TextField nameTextField     = tdlBuilder.buildTextField(TDLM_NAME_TEXT_FIELD,  namePane,       null,   CLASS_TDLM_TEXT_FIELD, NO_KEY_HANDLER,       FOCUS_TRAVERSABLE,      ENABLED);
+        
         // THIS HAS THE ITEMS PANE COMPONENTS
         VBox itemsPane              = tdlBuilder.buildVBox(TDLM_ITEMS_PANE,                 toDoListPane,       null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
         HBox itemButtonsPane        = tdlBuilder.buildHBox(TDLM_ITEM_BUTTONS_PANE,          itemsPane,          null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
@@ -105,7 +113,7 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         TableColumn descriptionColumn   = tdlBuilder.buildTableColumn(  TDLM_DESCRIPTION_COLUMN, itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn startDateColumn     = tdlBuilder.buildTableColumn(  TDLM_START_DATE_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn endDateColumn       = tdlBuilder.buildTableColumn(  TDLM_END_DATE_COLUMN,    itemsTable,         CLASS_TDLM_COLUMN);
-        TableColumn assignedToColumn    = tdlBuilder.buildTableColumn(  TDLM_ASSIGNED_TO_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
+        TableColumn assignedToColumn    = tdlBuilder.buildTableColumn(  TDLM_ASSIGNED_TO_COLUMN, itemsTable,        CLASS_TDLM_COLUMN);
         TableColumn completedColumn     = tdlBuilder.buildTableColumn(  TDLM_COMPLETED_COLUMN,   itemsTable,         CLASS_TDLM_COLUMN);
 
         // SPECIFY THE TYPES FOR THE COLUMNS

@@ -64,11 +64,13 @@ public class ToDoFiles implements AppFileComponent {
     static final String JSON_ASSIGNED_TO = "assigned_to";
     static final String JSON_COMPLETED = "completed";
     static final String JSON_OWNER = "owner";
+    static final String JSON_NAME = "name";
     static final String JSON_ITEMS = "items";
     
     // FOR EXPORTING TO HTML
     static final String TITLE_TAG = "title";
     static final String OWNER_TAG = "list_owner_td";
+    static final String NAME_TAG = "list_name_td";
     static final String TABLE_DATA_TAG = "to_do_list_table_data";
     
     /**
@@ -89,6 +91,7 @@ public class ToDoFiles implements AppFileComponent {
 	
 	// FIRST THE LIST NAME AND OWNER
         String owner = toDoData.getOwner();
+        String name = toDoData.getName();
         
 	// NOW BUILD THE JSON ARRAY FOR THE LIST
 	JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
@@ -109,6 +112,7 @@ public class ToDoFiles implements AppFileComponent {
 	// THEN PUT IT ALL TOGETHER IN A JsonObject
 	JsonObject toDoDataJSO = Json.createObjectBuilder()
                 .add(JSON_OWNER, owner)
+                .add(JSON_NAME, name)
 		.add(JSON_ITEMS, itemsArray)
 		.build();
 	
@@ -157,6 +161,8 @@ public class ToDoFiles implements AppFileComponent {
 	// LOAD LIST NAME AND OWNER
 	String owner = json.getString(JSON_OWNER);
         toDoData.setOwner(owner);
+        String name = json.getString(JSON_NAME);
+        toDoData.setName(name);
 	
 	// AND NOW LOAD ALL THE ITEMS
 	JsonArray jsonItemArray = json.getJsonArray(JSON_ITEMS);
@@ -233,9 +239,11 @@ public class ToDoFiles implements AppFileComponent {
             Node titleNode = exportDoc.getElementsByTagName(TITLE_TAG).item(0);
             titleNode.setTextContent("No Name List");
 
-            // SET THE OWNER
+            // SET THE OWNER AND LIST NAME
             Node ownerNode = getNodeWithId(exportDoc, HTML.Tag.TD.toString(), OWNER_TAG);
             ownerNode.setTextContent(toDoData.getOwner());
+            Node nameNode = getNodeWithId(exportDoc, HTML.Tag.TD.toString(), NAME_TAG);
+            nameNode.setTextContent(toDoData.getName());
             
             // ADD ALL THE ITEMS
             Node tDataNode = getNodeWithId(exportDoc, "tdata", TABLE_DATA_TAG);

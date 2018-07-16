@@ -5,6 +5,7 @@ import djf.ui.foolproof.FoolproofDesign;
 import javafx.scene.control.TextField;
 import tdlm.ToDoListMakerApp;
 import static tdlm.ToDoPropertyType.TDLM_OWNER_TEXT_FIELD;
+import static tdlm.ToDoPropertyType.TDLM_NAME_TEXT_FIELD;
 import static tdlm.ToDoPropertyType.TDLM_REMOVE_ITEM_BUTTON;
 import tdlm.data.ToDoData;
 
@@ -29,5 +30,6 @@ public class ToDoSelectionFoolproofDesign implements FoolproofDesign {
         boolean itemsAreSelected = data.areItemsSelected();
         gui.getGUINode(TDLM_REMOVE_ITEM_BUTTON).setDisable(!(itemIsSelected || itemsAreSelected));
         ((TextField)gui.getGUINode(TDLM_OWNER_TEXT_FIELD)).setEditable(true);
+        ((TextField)gui.getGUINode(TDLM_NAME_TEXT_FIELD)).setEditable(true);
     }
 }
