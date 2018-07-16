@@ -41,7 +41,7 @@
         <property name="HAS_HELP_TOOLBAR"       value="true"></property>
         <property name="HAS_HELP"               value="true"></property>
         <property name="HAS_LANGUAGE"           value="true"></property>
-        <property name="HAS_ABOUT"              value="false"></property>
+        <property name="HAS_ABOUT"              value="true"></property>
 
         <!-- PROGRAM ICON FILES - FILE TOOLBAR -->        
         <property name="NEW_BUTTON_ICON"        value="New.png"></property>
