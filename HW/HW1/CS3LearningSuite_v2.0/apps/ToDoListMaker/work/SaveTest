@@ -18,6 +18,14 @@
             "end_date":"2018-07-16",
             "assigned_to":"A",
             "completed":false
+        },
+        {
+            "category":"",
+            "description":"",
+            "start_date":"2018-07-16",
+            "end_date":"2018-07-16",
+            "assigned_to":"",
+            "completed":false
         }
     ]
 }

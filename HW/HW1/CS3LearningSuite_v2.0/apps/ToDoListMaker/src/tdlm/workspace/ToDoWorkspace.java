@@ -45,6 +45,9 @@ import static tdlm.ToDoPropertyType.TDLM_NAME_TEXT_FIELD;
 import static tdlm.ToDoPropertyType.TDLM_ITEMS_PANE;
 import static tdlm.ToDoPropertyType.TDLM_ITEM_BUTTONS_PANE;
 import static tdlm.ToDoPropertyType.TDLM_ADD_ITEM_BUTTON;
+import static tdlm.ToDoPropertyType.TDLM_EDIT_ITEM_BUTTON;
+import static tdlm.ToDoPropertyType.TDLM_MOVE_UP_ITEM_BUTTON;
+import static tdlm.ToDoPropertyType.TDLM_MOVE_DOWN_ITEM_BUTTON;
 import static tdlm.ToDoPropertyType.TDLM_CATEGORY_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_COMPLETED_COLUMN;
 import static tdlm.ToDoPropertyType.TDLM_DESCRIPTION_COLUMN;
@@ -62,6 +65,10 @@ import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
 import tdlm.workspace.foolproof.ToDoSelectionFoolproofDesign;
 import tdlm.transactions.SortItems_Transaction;
+
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 
 /**
  *
@@ -102,10 +109,13 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         TextField nameTextField     = tdlBuilder.buildTextField(TDLM_NAME_TEXT_FIELD,  namePane,       null,   CLASS_TDLM_TEXT_FIELD, NO_KEY_HANDLER,       FOCUS_TRAVERSABLE,      ENABLED);
         
         // THIS HAS THE ITEMS PANE COMPONENTS
-        VBox itemsPane              = tdlBuilder.buildVBox(TDLM_ITEMS_PANE,                 toDoListPane,       null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
-        HBox itemButtonsPane        = tdlBuilder.buildHBox(TDLM_ITEM_BUTTONS_PANE,          itemsPane,          null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
-        Button addItemButton        = tdlBuilder.buildIconButton(TDLM_ADD_ITEM_BUTTON,      itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,   FOCUS_TRAVERSABLE,  ENABLED);
-        Button removeItemButton     = tdlBuilder.buildIconButton(TDLM_REMOVE_ITEM_BUTTON,   itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,   FOCUS_TRAVERSABLE,  DISABLED);
+        VBox itemsPane              = tdlBuilder.buildVBox(TDLM_ITEMS_PANE,                   toDoListPane,       null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
+        HBox itemButtonsPane        = tdlBuilder.buildHBox(TDLM_ITEM_BUTTONS_PANE,            itemsPane,          null,   CLASS_TDLM_BOX, HAS_KEY_HANDLER,     FOCUS_TRAVERSABLE,  ENABLED);
+        Button addItemButton        = tdlBuilder.buildIconButton(TDLM_ADD_ITEM_BUTTON,        itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,  FOCUS_TRAVERSABLE,  ENABLED);
+        Button removeItemButton     = tdlBuilder.buildIconButton(TDLM_REMOVE_ITEM_BUTTON,     itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,  FOCUS_TRAVERSABLE,  DISABLED);
+        Button editItemButton       = tdlBuilder.buildIconButton(TDLM_EDIT_ITEM_BUTTON,       itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,  FOCUS_TRAVERSABLE,  ENABLED);
+        Button moveUpItemButton     = tdlBuilder.buildIconButton(TDLM_MOVE_UP_ITEM_BUTTON,    itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,  FOCUS_TRAVERSABLE,  ENABLED);
+        Button moveDownItemButton   = tdlBuilder.buildIconButton(TDLM_MOVE_DOWN_ITEM_BUTTON,  itemButtonsPane,    null,   CLASS_TDLM_BUTTON, HAS_KEY_HANDLER,  FOCUS_TRAVERSABLE,  ENABLED);
 
         // AND NOW THE TABLE
         TableView<ToDoItemPrototype> itemsTable  = tdlBuilder.buildTableView(TDLM_ITEMS_TABLE_VIEW,       itemsPane,          null,   CLASS_TDLM_TABLE, HAS_KEY_HANDLER,    FOCUS_TRAVERSABLE,  true);
@@ -113,7 +123,7 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         TableColumn descriptionColumn   = tdlBuilder.buildTableColumn(  TDLM_DESCRIPTION_COLUMN, itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn startDateColumn     = tdlBuilder.buildTableColumn(  TDLM_START_DATE_COLUMN,  itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn endDateColumn       = tdlBuilder.buildTableColumn(  TDLM_END_DATE_COLUMN,    itemsTable,         CLASS_TDLM_COLUMN);
-        TableColumn assignedToColumn    = tdlBuilder.buildTableColumn(  TDLM_ASSIGNED_TO_COLUMN, itemsTable,        CLASS_TDLM_COLUMN);
+        TableColumn assignedToColumn    = tdlBuilder.buildTableColumn(  TDLM_ASSIGNED_TO_COLUMN, itemsTable,         CLASS_TDLM_COLUMN);
         TableColumn completedColumn     = tdlBuilder.buildTableColumn(  TDLM_COMPLETED_COLUMN,   itemsTable,         CLASS_TDLM_COLUMN);
 
         // SPECIFY THE TYPES FOR THE COLUMNS
@@ -142,8 +152,20 @@ public class ToDoWorkspace extends AppWorkspaceComponent {
         removeItemButton.setOnAction(e->{
             itemsController.processRemoveItems();
         });
+        editItemButton.setOnAction(e->{
+            itemsController.processEditItem();
+        });
+        moveUpItemButton.setOnAction(e->{
+            itemsController.processMoveUpItem();
+        });
+        moveDownItemButton.setOnAction(e->{
+            itemsController.processMoveDownItem();
+        });
         itemsTable.setOnMouseClicked(e -> {
             app.getFoolproofModule().updateAll();
+            if(e.getClickCount()==2 && ((ToDoData)app.getDataComponent()).isItemSelected()){
+                itemsController.processEditItem();
+            }
         });
         ItemsTableController iTC = new ItemsTableController(app);
         itemsTable.widthProperty().addListener(e->{

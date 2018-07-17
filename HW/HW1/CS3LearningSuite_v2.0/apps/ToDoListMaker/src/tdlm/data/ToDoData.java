@@ -86,7 +86,18 @@ public class ToDoData implements AppDataComponent {
         ObservableList<ToDoItemPrototype> selectedItems = this.getSelectedItems();
         return (selectedItems != null) && (selectedItems.size() > 1);        
     }
+    
+    public boolean isItemTop() {
+        int index=this.getItemIndex(this.getSelectedItem());
+        return (index==0);
+    }
 
+    public boolean isItemBottom() {
+        int index=this.getItemIndex(this.getSelectedItem());
+        int total=this.getNumItems();
+        return (index==this.getNumItems()-1);
+    }
+        
     public boolean isValidToDoItemEdit(ToDoItemPrototype itemToEdit, String category, String description, LocalDate startDate, LocalDate endDate, boolean completed) {
         return isValidNewToDoItem(category, description, startDate, endDate, completed);
     }
@@ -130,6 +141,8 @@ public class ToDoData implements AppDataComponent {
     public void moveItem(int oldIndex, int newIndex) {
         ToDoItemPrototype itemToMove = items.remove(oldIndex);
         items.add(newIndex, itemToMove);
+        this.clearSelectItem();
+        this.selectItem(itemToMove);
     }
 
     public int getNumItems() {
@@ -140,6 +153,10 @@ public class ToDoData implements AppDataComponent {
         this.itemsSelectionModel.select(itemToSelect);
     }
 
+    public void clearSelectItem() {
+        this.itemsSelectionModel.clearSelection();
+    }
+        
     public ArrayList<Integer> removeAll(ArrayList<ToDoItemPrototype> itemsToRemove) {
         ArrayList<Integer> itemIndices = new ArrayList();
         for (ToDoItemPrototype item: itemsToRemove) {

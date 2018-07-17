@@ -7,6 +7,9 @@ import tdlm.data.ToDoItemPrototype;
 import tdlm.workspace.dialogs.ToDoListItemDialog;
 import tdlm.transactions.AddItem_Transaction;
 import tdlm.transactions.RemoveItems_Transaction;
+import tdlm.transactions.EditItem_Transaction;
+import tdlm.transactions.MoveUpItem_Transaction;
+import tdlm.transactions.MoveDownItem_Transaction;
 
 /**
  *
@@ -24,7 +27,8 @@ public class ItemsController {
     
     public void processAddItem() {
         itemDialog.showAddDialog();
-        ToDoItemPrototype newItem = itemDialog.getNewItem();        
+        ToDoItemPrototype newItem = itemDialog.getNewItem();
+        //
         if (newItem != null) {
             // IF IT HAS A UNIQUE NAME AND COLOR
             // THEN CREATE A TRANSACTION FOR IT
@@ -47,5 +51,23 @@ public class ItemsController {
             RemoveItems_Transaction transaction = new RemoveItems_Transaction(app, itemsToRemove);
             app.processTransaction(transaction);
         }
+    }
+    
+    public void processEditItem(){
+        System.out.println("Edit Clicked");
+    }
+    
+    public void processMoveUpItem(){
+        System.out.println("MoveUp Clicked");
+        ToDoData data = (ToDoData)app.getDataComponent();
+        MoveUpItem_Transaction transaction = new MoveUpItem_Transaction(data, (ToDoItemPrototype)data.getSelectedItem());
+        app.processTransaction(transaction);
+    }
+    
+    public void processMoveDownItem(){
+        System.out.println("MoveDown Clicked");
+        ToDoData data = (ToDoData)app.getDataComponent();
+        MoveDownItem_Transaction transaction = new MoveDownItem_Transaction(data, (ToDoItemPrototype)data.getSelectedItem());
+        app.processTransaction(transaction);
     }
 }

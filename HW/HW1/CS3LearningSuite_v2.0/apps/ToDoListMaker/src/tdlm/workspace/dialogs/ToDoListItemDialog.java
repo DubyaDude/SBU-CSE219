@@ -129,7 +129,7 @@ public class ToDoListItemDialog extends Stage {
         initGridNode(startDatePicker,       null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 3, 1, 1, false);
         initGridNode(endDateLabel,          TDLM_ITEM_DIALOG_END_DATE_PROMPT,       CLASS_TDLM_DIALOG_PROMPT,       0, 4, 1, 1, true);
         initGridNode(endDatePicker,         null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 4, 1, 1, false);
-        initGridNode(assignedToLabel,       TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT,     CLASS_TDLM_DIALOG_PROMPT,       0, 5, 1, 1, true);
+        initGridNode(assignedToLabel,       TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT,    CLASS_TDLM_DIALOG_PROMPT,       0, 5, 1, 1, true);
         initGridNode(assignedToTextField,   null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 5, 1, 1, false);
         initGridNode(completedLabel,        TDLM_ITEM_DIALOG_COMPLETED_PROMPT,      CLASS_TDLM_DIALOG_PROMPT,       0, 6, 2, 1, true);
         initGridNode(completedCheckBox,     TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX,   CLASS_TDLM_DIALOG_CHECK_BOX,    1, 6, 2, 1, false);
@@ -261,6 +261,7 @@ public class ToDoListItemDialog extends Stage {
     }
     
     public ToDoItemPrototype getNewItem() {
+        this.makeNewItem();
         return newItem;
     }
     

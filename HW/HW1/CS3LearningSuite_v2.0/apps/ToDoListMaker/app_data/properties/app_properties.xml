@@ -69,6 +69,9 @@
         <!-- TDLM ITEM BUTTONS TOOLBAR -->
         <property name="TDLM_ADD_ITEM_BUTTON_ICON"       value="AddItem.png"></property>
         <property name="TDLM_REMOVE_ITEM_BUTTON_ICON"    value="RemoveItem.png"></property>
+        <property name="TDLM_EDIT_ITEM_BUTTON_ICON"      value="EditItem.png"></property>
+        <property name="TDLM_MOVE_UP_ITEM_BUTTON_ICON"      value="MoveUp.png"></property>
+        <property name="TDLM_MOVE_DOWN_ITEM_BUTTON_ICON"      value="MoveDown.png"></property>
         
         <!-- THIS IS THE FILE WE'LL USE TO MAKE OUR EXPORTED WEB FILE -->
         <property name="TDLM_EXPORT_TEMPLATE_FILE_NAME"  value="ToDoTemplate.html"></property>     
