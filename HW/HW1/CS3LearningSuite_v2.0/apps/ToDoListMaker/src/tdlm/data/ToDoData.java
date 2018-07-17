@@ -141,8 +141,6 @@ public class ToDoData implements AppDataComponent {
     public void moveItem(int oldIndex, int newIndex) {
         ToDoItemPrototype itemToMove = items.remove(oldIndex);
         items.add(newIndex, itemToMove);
-        this.clearSelectItem();
-        this.selectItem(itemToMove);
     }
 
     public int getNumItems() {
@@ -151,10 +149,6 @@ public class ToDoData implements AppDataComponent {
 
     public void selectItem(ToDoItemPrototype itemToSelect) {
         this.itemsSelectionModel.select(itemToSelect);
-    }
-
-    public void clearSelectItem() {
-        this.itemsSelectionModel.clearSelection();
     }
         
     public ArrayList<Integer> removeAll(ArrayList<ToDoItemPrototype> itemsToRemove) {

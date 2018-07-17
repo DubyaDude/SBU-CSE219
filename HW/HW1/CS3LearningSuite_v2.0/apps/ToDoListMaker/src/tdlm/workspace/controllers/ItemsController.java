@@ -55,6 +55,11 @@ public class ItemsController {
     
     public void processEditItem(){
         System.out.println("Edit Clicked");
+        ToDoData data = (ToDoData)app.getDataComponent();
+        itemDialog.showEditDialog((ToDoItemPrototype)data.getSelectedItem());
+        ToDoItemPrototype editedItem=itemDialog.getEditItem();
+        EditItem_Transaction transaction = new EditItem_Transaction(data, editedItem);
+        app.processTransaction(transaction);
     }
     
     public void processMoveUpItem(){

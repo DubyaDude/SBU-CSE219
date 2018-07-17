@@ -103,6 +103,9 @@ public class ToDoListItemDialog extends Stage {
         // GET THE LANGUAGE SETTINGS
         AppLanguageModule languageSettings = app.getLanguageModule();
         
+        //LOAD LANGUAGES
+        
+        
         // TAKE CARE OF THE TEXT
         if (isLanguageDependent) {
             languageSettings.addLabeledControlProperty(nodeId + "_TEXT", ((Labeled)node).textProperty());
@@ -148,7 +151,7 @@ public class ToDoListItemDialog extends Stage {
         AppLanguageModule languageSettings = app.getLanguageModule();
         languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_OK_BUTTON + "_TEXT",    okButton.textProperty());
         languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_CANCEL_BUTTON + "_TEXT",    cancelButton.textProperty());
-       
+        
         // AND SETUP THE EVENT HANDLERS
         categoryTextField.setOnAction(e->{
             processCompleteWork();
@@ -253,6 +256,7 @@ public class ToDoListItemDialog extends Stage {
         categoryTextField.setText(itemToEdit.getCategory());
         descriptionTextField.setText(itemToEdit.getDescription());
         startDatePicker.setValue(itemToEdit.getStartDate());
+        endDatePicker.setValue(itemToEdit.getEndDate());
         assignedToTextField.setText(itemToEdit.getAssignedTo());
         completedCheckBox.selectedProperty().setValue(itemToEdit.isCompleted());
                
@@ -261,7 +265,9 @@ public class ToDoListItemDialog extends Stage {
     }
     
     public ToDoItemPrototype getNewItem() {
-        this.makeNewItem();
+//        if(newItem!=null){
+//            this.makeNewItem();
+//        }
         return newItem;
     }
     

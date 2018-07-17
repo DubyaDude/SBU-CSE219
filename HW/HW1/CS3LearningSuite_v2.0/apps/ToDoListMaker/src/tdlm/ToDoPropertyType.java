@@ -11,7 +11,7 @@ package tdlm;
 public enum ToDoPropertyType {
    
     /* THESE ARE THE NODES IN OUR APP */
-         
+    
     // THIS IS THE TDLM WORKSPACE PANE
     TDLM_PANE,
     TDLM_TO_DO_LIST_LABEL,
@@ -67,7 +67,7 @@ public enum ToDoPropertyType {
     TDLM_ITEM_DIALOG_OK_BUTTON,
     TDLM_ITEM_DIALOG_CANCEL_BUTTON,
     
-    
+   
     // THIS IS THE EXPORT TEMPLATE FILE NAME
     TDLM_EXPORT_TEMPLATE_FILE_NAME
 }

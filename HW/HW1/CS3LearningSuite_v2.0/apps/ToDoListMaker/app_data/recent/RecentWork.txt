@@ -1,4 +1,4 @@
+GradingCriteria-work/GradingCriteria.tdlm
 HouseRepairs-work/HouseRepairs.tdlm
 SaveTest-work/SaveTest
-GradingCriteria-work/GradingCriteria.tdlm
 Classwork-work/Classwork.tdlm

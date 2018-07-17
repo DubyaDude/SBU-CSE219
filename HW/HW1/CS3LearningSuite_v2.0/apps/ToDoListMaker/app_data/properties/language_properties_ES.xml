@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     This XML file provides all the text to be used when the application
-    is to be displayed in English.
+    is to be displayed in Spanish.
 -->
 <properties>
     <property_list>
 
-        <!-- ENGLISH LANGUAGE SETTINGS FOR DESKTOP JAVA FRAMEWORK CONTROLS -->
+        <!-- SPANISH LANGUAGE SETTINGS FOR DESKTOP JAVA FRAMEWORK CONTROLS -->
 
         <!-- WELCOME DIALOG TEXT -->
         <property name="WELCOME_DIALOG_TITLE"               value="Bienvenido a Metro Map Maker"></property>
         <property name="WELCOME_DIALOG_RECENT_WORK_LABEL"   value="Trabajo Reciente"></property>
-        <property name="WELCOME_DIALOG_CREATE_BUTTON_TEXT"  value="Crear un Nuevo Mapa de Metro"></property>
+        <property name="WELCOME_DIALOG_NEW_BUTTON_TEXT"  value="Crear un Nuevo Mapa de Metro"></property>
 
         <!-- GENERIC APP ERROR MESSAGES -->
         <property name="APP_ERROR_TITLE"            value="Error de la Aplicación"></property>
@@ -66,109 +66,58 @@
         <property name="SAVE_VERIFY_CONTENT"	value="¿Le gustaría guardar su trabajo no guardado primero?"></property>
 
         <!-- ABOUT DIALOG -->
-        <property name="ABOUT_TITLE"            value="Acerca de M3"></property>
-        <property name="ABOUT_CONTENT"          value="M3, el Metro Map Maker - Debugging Enterprises - © 2017"></property>
+        <property name="ABOUT_TITLE"            value="Acerca de TLDM"></property>
+        <property name="ABOUT_CONTENT"          value="TLDM, el To Do List Maker - Debugging Enterprises - © 2017"></property>
 
 
-        <!-- ENGLISH LANGUAGE SETTINGS SPECIFICALLY FOR M3 CONTROLS -->
+        <!-- SPANISH LANGUAGE SETTINGS SPECIFICALLY FOR TDLM CONTROLS -->
         
-        <!-- LINES PANE -->
-        <property name="M3_LINES_LABEL_TEXT"                value="Líneas de Metro"></property>
-        <property name="M3_LINES_COMBO_BOX_DEFAULT"         value="Seleccione una Línea"></property>
-        <property name="M3_EDIT_LINE_BUTTON_TOOLTIP"        value="Editar Propiedades de Línea Seleccionadas"></property>
-        <property name="M3_ADD_LINE_BUTTON_TOOLTIP"         value="Agregar Nueva Línea"></property>
-        <property name="M3_REMOVE_LINE_BUTTON_TOOLTIP"      value="Eliminar la Línea Seleccionada"></property>
-        <property name="M3_ADD_STATIONS_BUTTON_TOOLTIP"     value="Añadir Estaciones a la Línea Seleccionada"></property>
-        <property name="M3_REMOVE_STATIONS_BUTTON_TOOLTIP"  value="Eliminar Estaciones de la Línea Seleccionada"></property>
-        <property name="M3_LIST_STATIONS_BUTTON_TOOLTIP"    value="Lista de Estaciones en la Línea Seleccionada"></property>
+        <!-- LANGUAGE-DEPENDENT TEXT FOR WORKSPACE CONTROLS -->
+        <property name="TDLM_TO_DO_LIST_LABEL_TEXT"      value="@lista de quehaceres"></property>
+        <property name="TDLM_NAME_LABEL_TEXT"            value="Lista de nombres:"></property>
+        <property name="TDLM_OWNER_LABEL_TEXT"           value="Propietario de lista:"></property>
+        <property name="TDLM_ITEMS_LABEL_TEXT"           value="Artículos"></property>
+        <property name="TDLM_ADD_ITEM_BUTTON_TOOLTIP"    value="Agregar ítem nuevo"></property>
+        <property name="TDLM_REMOVE_ITEM_BUTTON_TOOLTIP" value="Remover item seleccionado"></property>
+        <property name="TDLM_EDIT_ITEM_BUTTON_TOOLTIP"   value="Editar elemento seleccionado"></property>
+        <property name="TDLM_MOVE_UP_BUTTON_TOOLTIP"     value="Mueva el elemento seleccionado hacia arriba"></property>
+        <property name="TDLM_MOVE_DOWN_BUTTON_TOOLTIP"   value="Mover el elemento seleccionado hacia abajo"></property>
+        <property name="TDLM_CATEGORY_COLUMN_TEXT"       value="Categoría"></property>
+        <property name="TDLM_DESCRIPTION_COLUMN_TEXT"    value="Descripción"></property>
+        <property name="TDLM_START_DATE_COLUMN_TEXT"     value="Fecha de inicio"></property>
+        <property name="TDLM_END_DATE_COLUMN_TEXT"       value="Fecha de finalización"></property>
+        <property name="TDLM_ASSIGNED_TO_COLUMN_TEXT"    value="Asignado a"></property>
+        <property name="TDLM_COMPLETED_COLUMN_TEXT"      value="Completado"></property>
 
-        <!-- STATIONS PANE -->
-        <property name="M3_STATIONS_LABEL_TEXT"             value="Estaciones de Metro"></property>
-        <property name="M3_STATIONS_COMBO_BOX_DEFAULT"      value="Seleccione una Estación"></property>
-        <property name="M3_EDIT_STATION_BUTTON_TOOLTIP"     value="Editar Propiedades de Estaciones Seleccionadas"></property>
-        <property name="M3_ADD_STATION_BUTTON_TOOLTIP"      value="Agregar Nueva Estación de Metro"></property>
-        <property name="M3_REMOVE_STATION_BUTTON_TOOLTIP"   value="Eliminar Estación Seleccionada del Mapa"></property>
-        <property name="M3_SNAP_STATION_BUTTON_TOOLTIP"     value="Ajustar la Estación Seleccionada"></property>
-        <property name="M3_MOVE_LABEL_BUTTON_TOOLTIP"       value="Mueva la Etiqueta de la Estación Seleccionada"></property>
-        <property name="M3_ROTATE_LABEL_BUTTON_TOOLTIP"     value="Girar Etiqueta de Estación Seleccionada"></property>
-    
-        <!-- ROUTE PANE -->
-        <property name="M3_ROUTE_LABEL_TEXT"            value="Rutas de Metro"></property>
-       <property name="M3_FIND_ROUTE_BUTTON_TOOLTIP"   value="Encuentre una Ruta de Transferencia Mínima"></property>
-        <property name="M3_RESET_ROUTE_BUTTON_TOOLTIP"  value="Restablecer la Ruta"></property>
-
-        <!-- DECOR PANE -->
-        <property name="M3_DECOR_LABEL_TEXT"                        value="Decoración"></property>
-        <property name="M3_BACKGROUND_COLOR_TOOLTIP"                value="Cambiar el color de fondo"></property>
-        <property name="M3_SET_BACKGROUND_IMAGE_BUTTON_TOOLTIP"     value="Establecer la Imagen de Fondo del Mapa"></property>
-        <property name="M3_CLEAR_BACKGROUND_IMAGE_BUTTON_TOOLTIP"   value="Borrar la Imagen de Fondo del Mapa"></property>
-        <property name="M3_ADD_IMAGE_BUTTON_TOOLTIP"                value="Agregar Imagen al Mapa"></property>
-        <property name="M3_ADD_LABEL_BUTTON_TOOLTIP"                value="Agregar Etiqueta al Mapa"></property>
-        <property name="M3_REMOVE_ELEMENT_BUTTON_TOOLTIP"           value="Eliminar el Elemento Seleccionado del Mapa"></property>
-    
-        <!-- FONT PANE -->
-        <property name="M3_FONT_LABEL_TEXT"                 value="Fuente"></property>
-        <property name="M3_FONT_COLOR_TOOLTIP"              value="Fuente Color Tooltip"></property>
-        <property name="M3_BOLD_TOGGLE_BUTTON_TOOLTIP"      value="Haga que el texto seleccionado sea audaz"></property>
-        <property name="M3_ITALIC_TOGGLE_BUTTON_TOOLTIP"    value="Hacer el texto seleccionado en cursiva"></property>
-
-        <!-- NAVIGATION PANE -->
-        <property name="M3_NAVIGATION_LABEL_TEXT"           value="Navegación"></property>
-        <property name="M3_GRID_CHECKBOX_TEXT"              value="Mostrar cuadrícula"></property>
-        <property name="M3_ZOOM_IN_BUTTON_TOOLTIP"          value="Acercarse"></property>
-        <property name="M3_ZOOM_OUT_BUTTON_TOOLTIP"         value="Disminuir el Zoom"></property>
-        <property name="M3_SCALE_MAP_WIDTH_BUTTON_TOOLTIP"  value="Ancho del Mapa de Escala"></property>
-        <property name="M3_SCALE_MAP_HEIGHT_BUTTON_TOOLTIP" value="Altura del Mapa de Escala"></property>
-        <property name="M3_SCALE_MAP_BUTTON_TOOLTIP"        value="Mapa de Escala"></property>
-
-        <!-- LINE DIALOG -->
-        <property name="M3_LINE_DIALOG_ADD_HEADER_LABEL_TEXT"       value="Agregar Nueva Línea"></property>
-        <property name="M3_LINE_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="Editar Línea"></property>
-        <property name="M3_LINE_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="Nombre:"></property>
-        <property name="M3_LINE_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="Color:"></property>
-        <property name="M3_LINE_DIALOG_CIRCULAR_PROMPT_LABEL_TEXT"  value="Circular:"></property>
-        <property name="M3_LINE_DIALOG_OK_BUTTON_TEXT"              value="OK"></property>
-        <property name="M3_LINE_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
-
-        <!-- STATION DIALOG -->
-        <property name="M3_STATION_DIALOG_ADD_HEADER_LABEL_TEXT"       value="Agregar Nueva Estación"></property>
-        <property name="M3_STATION_DIALOG_EDIT_HEADER_LABEL_TEXT"      value="Editar Estación"></property>
-        <property name="M3_STATION_DIALOG_NAME_PROMPT_LABEL_TEXT"      value="Nombre:"></property>
-        <property name="M3_STATION_DIALOG_COLOR_PROMPT_LABEL_TEXT"     value="Color:"></property>
-        <property name="M3_STATION_DIALOG_OK_BUTTON_TEXT"              value="OK"></property>
-        <property name="M3_STATION_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
-        
-        <!-- MAP SIZE DIALOG -->
-        <property name="M3_MAP_SIZE_DIALOG_HEADER_LABEL_TEXT"           value="Cambiar el Tamaño del Mapa"></property>
-        <property name="M3_MAP_SIZE_DIALOG_WIDTH_PROMPT_LABEL_TEXT"     value="Anchura:"></property>
-        <property name="M3_MAP_SIZE_DIALOG_HEIGHT_PROMPT_LABEL_TEXT"    value="Altura:"></property>
-        <property name="M3_MAP_SIZE_DIALOG_OK_BUTTON_TEXT"              value="Ok"></property>
-        <property name="M3_MAP_SIZE_DIALOG_CANCEL_BUTTON_TEXT"          value="Cancelar"></property>
-        
+        <!-- LANGUAGE-DEPENDENT TEXT FOR ITEM DIALOG CONTROLS -->
+        <property name="TDLM_ITEM_DIALOG_HEADER_TEXT"               value="Agregar / Editar elementos"></property>
+        <property name="TDLM_ITEM_DIALOG_ADD_HEADER_TEXT"           value="Agregar elemento"></property>
+        <property name="TDLM_ITEM_DIALOG_EDIT_HEADER_TEXT"          value="Editar elemento"></property>
+        <property name="TDLM_ITEM_DIALOG_CATEGORY_PROMPT_TEXT"      value="Categoría:"></property>
+        <property name="TDLM_ITEM_DIALOG_DESCRIPTION_PROMPT_TEXT"   value="Descripción:"></property>
+        <property name="TDLM_ITEM_DIALOG_START_DATE_PROMPT_TEXT"    value="Fecha de inicio:"></property>
+        <property name="TDLM_ITEM_DIALOG_END_DATE_PROMPT_TEXT"      value="Fecha de finalización:"></property>
+        <property name="TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT_TEXT"   value="Asignado a:"></property>
+        <property name="TDLM_ITEM_DIALOG_COMPLETED_PROMPT_TEXT"     value="Completado:"></property>
+        <property name="TDLM_ITEM_DIALOG_OK_BUTTON_TEXT"            value="OK"></property>
+        <property name="TDLM_ITEM_DIALOG_CANCEL_BUTTON_TEXT"        value="Cancelar"></property>    
+           
         <!-- TO SWITCH BACK TO ANOTHER LANGUAGE -->
         <property name="LANGUAGE_DIALOG_TITLE"          value="Idioma de la Aplicación"></property>
         <property name="LANGUAGE_DIALOG_HEADER_TEXT"    value="Elija un idioma"></property>
         <property name="LANGUAGE_DIALOG_CONTENT_TEXT"   value="Seleccione un idioma para la interfaz de usuario."></property>
 
-        <property name="WORK_FILE_EXT"          value="m3"></property>
-	<property name="WORK_FILE_EXT_DESC"     value="Metro Map Maker Archivos"></property>
+        <property name="WORK_FILE_EXT"          value="tdlm"></property>
+	<property name="WORK_FILE_EXT_DESC"     value="To Do List Maker Archivos"></property>
 
     </property_list>
     
-    <!-- M3 COMBO BOX CHOICES -->
+    <!-- TDLM COMBO BOX CHOICES -->
     <property_options_list>
-        <property_options name="M3_LINES_COMBO_BOX_OPTIONS">
-            <option>Seleccione una Línea</option>
-        </property_options>
-        <property_options name="M3_STATIONS_COMBO_BOX_OPTIONS">
-            <option>Seleccione una Estación</option>
-        </property_options>
-        <property_options name="M3_FONT_FAMILY_COMBO_BOX_OPTIONS">
-            <option>Dialog</option>
-            <option>DialogInput</option>
-            <option>Monospaced</option>
-            <option>Sans-serif</option>
-            <option>Serif</option>            
+        <property_options name="LANGUAGE_OPTIONS">
+            <option>English</option>
+            <option>Korean</option>
+            <option>Spanish</option>
         </property_options>
     </property_options_list>
 </properties>

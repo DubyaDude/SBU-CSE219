@@ -102,7 +102,7 @@ public class ToDoFiles implements AppFileComponent {
 		    .add(JSON_CATEGORY, item.getCategory())
 		    .add(JSON_DESCRIPTION, item.getDescription())
 		    .add(JSON_START_DATE, item.getStartDate().toString())
-                    .add(JSON_END_DATE, item.getStartDate().toString())
+                    .add(JSON_END_DATE, item.getEndDate().toString())
                     .add(JSON_ASSIGNED_TO, item.getAssignedTo())
 		    .add(JSON_COMPLETED, item.isCompleted()).build();
 	    arrayBuilder.add(itemJson);
@@ -255,6 +255,7 @@ public class ToDoFiles implements AppFileComponent {
                 addCellToRow(exportDoc, trElement, item.getCategory());
                 addCellToRow(exportDoc, trElement, item.getDescription());
                 addCellToRow(exportDoc, trElement, item.getStartDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
+                addCellToRow(exportDoc, trElement, item.getEndDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
                 addCellToRow(exportDoc, trElement, "" + item.isCompleted());
             }
             

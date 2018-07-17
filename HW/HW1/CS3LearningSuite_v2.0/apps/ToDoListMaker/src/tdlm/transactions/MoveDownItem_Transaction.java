@@ -1,8 +1,6 @@
 package tdlm.transactions;
 
-import javafx.collections.ObservableList;
 import jtps.jTPS_Transaction;
-import tdlm.ToDoListMakerApp;
 import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
 
@@ -11,22 +9,27 @@ import tdlm.data.ToDoItemPrototype;
  * @author ushaf
  */
 public class MoveDownItem_Transaction implements jTPS_Transaction{
-    ToDoData data;
     ToDoItemPrototype item;
+    ToDoData data;
     int indexToMove;
     
     public MoveDownItem_Transaction(ToDoData initData, ToDoItemPrototype selectedItem) {
-        this.data=initData;
-        indexToMove=data.getItemIndex(selectedItem);
+        data=initData;
+        item=selectedItem;
+        indexToMove=data.getItemIndex(item);
     }
 
     @Override
     public void doTransaction() {
         data.moveItem(indexToMove, indexToMove+1);
+        data.clearSelected();
+        data.selectItem(item);
     }
 
     @Override
     public void undoTransaction() {
         data.moveItem(indexToMove+1, indexToMove);
+        data.clearSelected();
+        data.selectItem(item);
     }
 }
