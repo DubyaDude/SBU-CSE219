@@ -13,19 +13,20 @@ import javafx.beans.property.StringProperty;
  * @author McKillaGorilla
  */
 public class ToDoItemPrototype implements Cloneable {
+
     public static final String DEFAULT_CATEGORY = "?";
     public static final String DEFAULT_DESCRIPTION = "?";
     public static final LocalDate DEFAULT_DATE = LocalDate.now();
     public static final String DEFAULT_ASSIGNED_TO = "?";
     public static final boolean DEFAULT_COMPLETED = false;
-    
+
     final StringProperty category;
     final StringProperty description;
     final ObjectProperty<LocalDate> startDate;
     final ObjectProperty<LocalDate> endDate;
     final StringProperty assignedTo;
     final BooleanProperty completed;
-       
+
     public ToDoItemPrototype() {
         category = new SimpleStringProperty(DEFAULT_CATEGORY);
         description = new SimpleStringProperty(DEFAULT_DESCRIPTION);
@@ -80,6 +81,7 @@ public class ToDoItemPrototype implements Cloneable {
     public ObjectProperty startDateProperty() {
         return startDate;
     }
+
     public LocalDate getEndDate() {
         return endDate.get();
     }
@@ -91,7 +93,7 @@ public class ToDoItemPrototype implements Cloneable {
     public ObjectProperty endDateProperty() {
         return endDate;
     }
-    
+
     public String getAssignedTo() {
         return assignedTo.get();
     }
@@ -115,7 +117,7 @@ public class ToDoItemPrototype implements Cloneable {
     public BooleanProperty completedProperty() {
         return completed;
     }
-    
+
     public void reset() {
         setCategory(DEFAULT_CATEGORY);
         setDescription(DEFAULT_DESCRIPTION);
@@ -126,14 +128,14 @@ public class ToDoItemPrototype implements Cloneable {
     }
 
     public Object clone() {
-        return new ToDoItemPrototype(   category.getValue(), 
-                                        description.getValue(), 
-                                        startDate.getValue(), 
-                                        endDate.getValue(),
-                                        assignedTo.getValue(),
-                                        completed.getValue());
+        return new ToDoItemPrototype(category.getValue(),
+                description.getValue(),
+                startDate.getValue(),
+                endDate.getValue(),
+                assignedTo.getValue(),
+                completed.getValue());
     }
-    
+
     public boolean equals(Object obj) {
         return this == obj;
     }

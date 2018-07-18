@@ -28,51 +28,51 @@ public class ToDoData implements AppDataComponent {
     TableViewSelectionModel itemsSelectionModel;
     StringProperty ownerProperty;
     StringProperty nameProperty;
-    
+
     public ToDoData(ToDoListMakerApp initApp) {
         app = initApp;
-        
+
         // GET ALL THE THINGS WE'LL NEED TO MANIUPLATE THE TABLE
         TableView tableView = (TableView) app.getGUIModule().getGUINode(TDLM_ITEMS_TABLE_VIEW);
         items = tableView.getItems();
         itemsSelectionModel = tableView.getSelectionModel();
         itemsSelectionModel.setSelectionMode(SelectionMode.MULTIPLE);
-        
+
         // AND FOR LIST NAME AND OWNER DATA
-        ownerProperty = ((TextField)app.getGUIModule().getGUINode(TDLM_OWNER_TEXT_FIELD)).textProperty();
-        nameProperty = ((TextField)app.getGUIModule().getGUINode(TDLM_NAME_TEXT_FIELD)).textProperty();
+        ownerProperty = ((TextField) app.getGUIModule().getGUINode(TDLM_OWNER_TEXT_FIELD)).textProperty();
+        nameProperty = ((TextField) app.getGUIModule().getGUINode(TDLM_NAME_TEXT_FIELD)).textProperty();
     }
-    
+
     public String getOwner() {
         return ownerProperty.getValue();
     }
-    
+
     public Iterator<ToDoItemPrototype> itemsIterator() {
         return this.items.iterator();
     }
-    
+
     public void setOwner(String initOwner) {
         ownerProperty.setValue(initOwner);
     }
-    
+
     public String getName() {
         return nameProperty.getValue();
     }
-    
+
     public void setName(String initOwner) {
         nameProperty.setValue(initOwner);
     }
-        
+
     @Override
     public void reset() {
         AppGUIModule gui = app.getGUIModule();
-        
+
         // CLEAR OUT THE TEXT FIELDS
         ownerProperty.setValue("");
         nameProperty.setValue("");
-        
+
         // CLEAR OUT THE ITEMS FROM THE TABLE
-        TableView tableView = (TableView)gui.getGUINode(TDLM_ITEMS_TABLE_VIEW);
+        TableView tableView = (TableView) gui.getGUINode(TDLM_ITEMS_TABLE_VIEW);
         items = tableView.getItems();
         items.clear();
     }
@@ -81,34 +81,37 @@ public class ToDoData implements AppDataComponent {
         ObservableList<ToDoItemPrototype> selectedItems = this.getSelectedItems();
         return (selectedItems != null) && (selectedItems.size() == 1);
     }
-    
+
     public boolean areItemsSelected() {
         ObservableList<ToDoItemPrototype> selectedItems = this.getSelectedItems();
-        return (selectedItems != null) && (selectedItems.size() > 1);        
+        return (selectedItems != null) && (selectedItems.size() > 1);
     }
-    
+
     public boolean isItemTop() {
-        int index=this.getItemIndex(this.getSelectedItem());
-        return (index==0);
+        int index = this.getItemIndex(this.getSelectedItem());
+        return (index == 0);
     }
 
     public boolean isItemBottom() {
-        int index=this.getItemIndex(this.getSelectedItem());
-        int total=this.getNumItems();
-        return (index==this.getNumItems()-1);
+        int index = this.getItemIndex(this.getSelectedItem());
+        int total = this.getNumItems();
+        return (index == this.getNumItems() - 1);
     }
-        
+
     public boolean isValidToDoItemEdit(ToDoItemPrototype itemToEdit, String category, String description, LocalDate startDate, LocalDate endDate, boolean completed) {
         return isValidNewToDoItem(category, description, startDate, endDate, completed);
     }
 
     public boolean isValidNewToDoItem(String category, String description, LocalDate startDate, LocalDate endDate, boolean completed) {
-        if (category.trim().length() == 0)
+        if (category.trim().length() == 0) {
             return false;
-        if (description.trim().length() == 0)
+        }
+        if (description.trim().length() == 0) {
             return false;
-        if (startDate.isAfter(endDate))
+        }
+        if (startDate.isAfter(endDate)) {
             return false;
+        }
         return true;
     }
 
@@ -126,8 +129,9 @@ public class ToDoData implements AppDataComponent {
         }
         return getSelectedItems().get(0);
     }
+
     public ObservableList<ToDoItemPrototype> getSelectedItems() {
-        return (ObservableList<ToDoItemPrototype>)this.itemsSelectionModel.getSelectedItems();
+        return (ObservableList<ToDoItemPrototype>) this.itemsSelectionModel.getSelectedItems();
     }
 
     public int getItemIndex(ToDoItemPrototype item) {
@@ -150,13 +154,13 @@ public class ToDoData implements AppDataComponent {
     public void selectItem(ToDoItemPrototype itemToSelect) {
         this.itemsSelectionModel.select(itemToSelect);
     }
-        
+
     public ArrayList<Integer> removeAll(ArrayList<ToDoItemPrototype> itemsToRemove) {
         ArrayList<Integer> itemIndices = new ArrayList();
-        for (ToDoItemPrototype item: itemsToRemove) {
+        for (ToDoItemPrototype item : itemsToRemove) {
             itemIndices.add(items.indexOf(item));
         }
-        for (ToDoItemPrototype item: itemsToRemove) {
+        for (ToDoItemPrototype item : itemsToRemove) {
             items.remove(item);
         }
         return itemIndices;

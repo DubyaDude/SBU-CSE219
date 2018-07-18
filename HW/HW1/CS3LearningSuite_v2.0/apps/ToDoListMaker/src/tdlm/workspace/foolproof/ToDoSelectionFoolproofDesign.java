@@ -17,8 +17,9 @@ import tdlm.data.ToDoData;
  * @author McKillaGorilla
  */
 public class ToDoSelectionFoolproofDesign implements FoolproofDesign {
+
     ToDoListMakerApp app;
-    
+
     public ToDoSelectionFoolproofDesign(ToDoListMakerApp initApp) {
         app = initApp;
     }
@@ -26,9 +27,9 @@ public class ToDoSelectionFoolproofDesign implements FoolproofDesign {
     @Override
     public void updateControls() {
         AppGUIModule gui = app.getGUIModule();
-       
+
         // CHECK AND SEE IF A TABLE ITEM IS SELECTED
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         boolean itemIsSelected = data.isItemSelected();
         boolean itemsAreSelected = data.areItemsSelected();
         boolean itemIsBottom = data.isItemBottom();
@@ -37,8 +38,8 @@ public class ToDoSelectionFoolproofDesign implements FoolproofDesign {
         gui.getGUINode(TDLM_MOVE_UP_ITEM_BUTTON).setDisable(!(itemIsSelected && !itemIsTop));
         gui.getGUINode(TDLM_MOVE_DOWN_ITEM_BUTTON).setDisable(!(itemIsSelected && !itemIsBottom));
         gui.getGUINode(TDLM_EDIT_ITEM_BUTTON).setDisable(!(itemIsSelected));
-        ((TextField)gui.getGUINode(TDLM_OWNER_TEXT_FIELD)).setEditable(true);
-        ((TextField)gui.getGUINode(TDLM_NAME_TEXT_FIELD)).setEditable(true);
-        
+        ((TextField) gui.getGUINode(TDLM_OWNER_TEXT_FIELD)).setEditable(true);
+        ((TextField) gui.getGUINode(TDLM_NAME_TEXT_FIELD)).setEditable(true);
+
     }
 }

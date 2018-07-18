@@ -56,6 +56,7 @@ import tdlm.data.ToDoItemPrototype;
  * @author McKillaGorilla
  */
 public class ToDoFiles implements AppFileComponent {
+
     // FOR JSON SAVING AND LOADING
     static final String JSON_CATEGORY = "category";
     static final String JSON_DESCRIPTION = "description";
@@ -66,151 +67,150 @@ public class ToDoFiles implements AppFileComponent {
     static final String JSON_OWNER = "owner";
     static final String JSON_NAME = "name";
     static final String JSON_ITEMS = "items";
-    
+
     // FOR EXPORTING TO HTML
     static final String TITLE_TAG = "title";
     static final String OWNER_TAG = "list_owner_td";
     static final String NAME_TAG = "list_name_td";
     static final String TABLE_DATA_TAG = "to_do_list_table_data";
-    
+
     /**
      * This method is for saving user work.
-     * 
+     *
      * @param data The data management component for this application.
-     * 
-     * @param filePath Path (including file name/extension) to where
-     * to save the data to.
-     * 
-     * @throws IOException Thrown should there be an error writing 
-     * out data to the file.
+     *
+     * @param filePath Path (including file name/extension) to where to save the
+     * data to.
+     *
+     * @throws IOException Thrown should there be an error writing out data to
+     * the file.
      */
     @Override
     public void saveData(AppDataComponent data, String filePath) throws IOException {
-	// GET THE DATA
-	ToDoData toDoData = (ToDoData)data;
-	
-	// FIRST THE LIST NAME AND OWNER
+        // GET THE DATA
+        ToDoData toDoData = (ToDoData) data;
+
+        // FIRST THE LIST NAME AND OWNER
         String owner = toDoData.getOwner();
         String name = toDoData.getName();
-        
-	// NOW BUILD THE JSON ARRAY FOR THE LIST
-	JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+
+        // NOW BUILD THE JSON ARRAY FOR THE LIST
+        JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
         Iterator<ToDoItemPrototype> itemsIt = toDoData.itemsIterator();
-	while (itemsIt.hasNext()) {	
+        while (itemsIt.hasNext()) {
             ToDoItemPrototype item = itemsIt.next();
-	    JsonObject itemJson = Json.createObjectBuilder()
-		    .add(JSON_CATEGORY, item.getCategory())
-		    .add(JSON_DESCRIPTION, item.getDescription())
-		    .add(JSON_START_DATE, item.getStartDate().toString())
+            JsonObject itemJson = Json.createObjectBuilder()
+                    .add(JSON_CATEGORY, item.getCategory())
+                    .add(JSON_DESCRIPTION, item.getDescription())
+                    .add(JSON_START_DATE, item.getStartDate().toString())
                     .add(JSON_END_DATE, item.getEndDate().toString())
                     .add(JSON_ASSIGNED_TO, item.getAssignedTo())
-		    .add(JSON_COMPLETED, item.isCompleted()).build();
-	    arrayBuilder.add(itemJson);
-	}
-	JsonArray itemsArray = arrayBuilder.build();
-	
-	// THEN PUT IT ALL TOGETHER IN A JsonObject
-	JsonObject toDoDataJSO = Json.createObjectBuilder()
+                    .add(JSON_COMPLETED, item.isCompleted()).build();
+            arrayBuilder.add(itemJson);
+        }
+        JsonArray itemsArray = arrayBuilder.build();
+
+        // THEN PUT IT ALL TOGETHER IN A JsonObject
+        JsonObject toDoDataJSO = Json.createObjectBuilder()
                 .add(JSON_OWNER, owner)
                 .add(JSON_NAME, name)
-		.add(JSON_ITEMS, itemsArray)
-		.build();
-	
-	// AND NOW OUTPUT IT TO A JSON FILE WITH PRETTY PRINTING
-	Map<String, Object> properties = new HashMap<>(1);
-	properties.put(JsonGenerator.PRETTY_PRINTING, true);
-	JsonWriterFactory writerFactory = Json.createWriterFactory(properties);
-	StringWriter sw = new StringWriter();
-	JsonWriter jsonWriter = writerFactory.createWriter(sw);
-	jsonWriter.writeObject(toDoDataJSO);
-	jsonWriter.close();
+                .add(JSON_ITEMS, itemsArray)
+                .build();
 
-	// INIT THE WRITER
-	OutputStream os = new FileOutputStream(filePath);
-	JsonWriter jsonFileWriter = Json.createWriter(os);
-	jsonFileWriter.writeObject(toDoDataJSO);
-	String prettyPrinted = sw.toString();
-	PrintWriter pw = new PrintWriter(filePath);
-	pw.write(prettyPrinted);
-	pw.close();
+        // AND NOW OUTPUT IT TO A JSON FILE WITH PRETTY PRINTING
+        Map<String, Object> properties = new HashMap<>(1);
+        properties.put(JsonGenerator.PRETTY_PRINTING, true);
+        JsonWriterFactory writerFactory = Json.createWriterFactory(properties);
+        StringWriter sw = new StringWriter();
+        JsonWriter jsonWriter = writerFactory.createWriter(sw);
+        jsonWriter.writeObject(toDoDataJSO);
+        jsonWriter.close();
+
+        // INIT THE WRITER
+        OutputStream os = new FileOutputStream(filePath);
+        JsonWriter jsonFileWriter = Json.createWriter(os);
+        jsonFileWriter.writeObject(toDoDataJSO);
+        String prettyPrinted = sw.toString();
+        PrintWriter pw = new PrintWriter(filePath);
+        pw.write(prettyPrinted);
+        pw.close();
     }
-    
+
     /**
-     * This method loads data from a JSON formatted file into the data 
-     * management component and then forces the updating of the workspace
-     * such that the user may edit the data.
-     * 
+     * This method loads data from a JSON formatted file into the data
+     * management component and then forces the updating of the workspace such
+     * that the user may edit the data.
+     *
      * @param data Data management component where we'll load the file into.
-     * 
-     * @param filePath Path (including file name/extension) to where
-     * to load the data from.
-     * 
-     * @throws IOException Thrown should there be an error
-     * reading
-     * in data from the file.
+     *
+     * @param filePath Path (including file name/extension) to where to load the
+     * data from.
+     *
+     * @throws IOException Thrown should there be an error reading in data from
+     * the file.
      */
     @Override
     public void loadData(AppDataComponent data, String filePath) throws IOException {
-	// CLEAR THE OLD DATA OUT
-	ToDoData toDoData = (ToDoData)data;
-	toDoData.reset();
-	
-	// LOAD THE JSON FILE WITH ALL THE DATA
-	JsonObject json = loadJSONFile(filePath);
-	
-	// LOAD LIST NAME AND OWNER
-	String owner = json.getString(JSON_OWNER);
+        // CLEAR THE OLD DATA OUT
+        ToDoData toDoData = (ToDoData) data;
+        toDoData.reset();
+
+        // LOAD THE JSON FILE WITH ALL THE DATA
+        JsonObject json = loadJSONFile(filePath);
+
+        // LOAD LIST NAME AND OWNER
+        String owner = json.getString(JSON_OWNER);
         toDoData.setOwner(owner);
         String name = json.getString(JSON_NAME);
         toDoData.setName(name);
-	
-	// AND NOW LOAD ALL THE ITEMS
-	JsonArray jsonItemArray = json.getJsonArray(JSON_ITEMS);
-	for (int i = 0; i < jsonItemArray.size(); i++) {
-	    JsonObject jsonItem = jsonItemArray.getJsonObject(i);
-	    ToDoItemPrototype item = loadItem(jsonItem);
-	    toDoData.addItem(item);
-	}
+
+        // AND NOW LOAD ALL THE ITEMS
+        JsonArray jsonItemArray = json.getJsonArray(JSON_ITEMS);
+        for (int i = 0; i < jsonItemArray.size(); i++) {
+            JsonObject jsonItem = jsonItemArray.getJsonObject(i);
+            ToDoItemPrototype item = loadItem(jsonItem);
+            toDoData.addItem(item);
+        }
     }
-    
+
     public double getDataAsDouble(JsonObject json, String dataName) {
-	JsonValue value = json.get(dataName);
-	JsonNumber number = (JsonNumber)value;
-	return number.bigDecimalValue().doubleValue();	
+        JsonValue value = json.get(dataName);
+        JsonNumber number = (JsonNumber) value;
+        return number.bigDecimalValue().doubleValue();
     }
-    
+
     public ToDoItemPrototype loadItem(JsonObject jsonItem) {
-	// GET THE DATA
-	String category = jsonItem.getString(JSON_CATEGORY);
-	String description = jsonItem.getString(JSON_DESCRIPTION);
+        // GET THE DATA
+        String category = jsonItem.getString(JSON_CATEGORY);
+        String description = jsonItem.getString(JSON_DESCRIPTION);
         String startDateText = jsonItem.getString(JSON_START_DATE);
         String endDateText = jsonItem.getString(JSON_END_DATE);
         LocalDate startDate = LocalDate.parse(startDateText, DateTimeFormatter.ISO_DATE);
         LocalDate endDate = LocalDate.parse(endDateText, DateTimeFormatter.ISO_DATE);
         String assignedTo = jsonItem.getString(JSON_ASSIGNED_TO);
-        
+
         boolean completed = jsonItem.getBoolean(JSON_COMPLETED);
-        
-	// THEN USE THE DATA TO BUILD AN ITEM
+
+        // THEN USE THE DATA TO BUILD AN ITEM
         ToDoItemPrototype item = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
-        
-	// ALL DONE, RETURN IT
-	return item;
+
+        // ALL DONE, RETURN IT
+        return item;
     }
 
     // HELPER METHOD FOR LOADING DATA FROM A JSON FORMAT
     private JsonObject loadJSONFile(String jsonFilePath) throws IOException {
-	InputStream is = new FileInputStream(jsonFilePath);
-	JsonReader jsonReader = Json.createReader(is);
-	JsonObject json = jsonReader.readObject();
-	jsonReader.close();
-	is.close();
-	return json;
+        InputStream is = new FileInputStream(jsonFilePath);
+        JsonReader jsonReader = Json.createReader(is);
+        JsonObject json = jsonReader.readObject();
+        jsonReader.close();
+        is.close();
+        return json;
     }
-    
+
     /**
-     * This method would be used to export data to another format,
-     * which we're not doing in this assignment.
+     * This method would be used to export data to another format, which we're
+     * not doing in this assignment.
      */
     @Override
     public void exportData(AppDataComponent data, String savedFileName) throws IOException {
@@ -218,7 +218,7 @@ public class ToDoFiles implements AppFileComponent {
         String fileToExport = toDoListName + ".html";
         try {
             // GET THE ACTUAL DATA
-            ToDoData toDoData = (ToDoData)data;
+            ToDoData toDoData = (ToDoData) data;
             PropertiesManager props = PropertiesManager.getPropertiesManager();
             String exportDirPath = props.getProperty(APP_PATH_EXPORT) + toDoListName + "/";
             File exportDir = new File(exportDirPath);
@@ -244,7 +244,7 @@ public class ToDoFiles implements AppFileComponent {
             ownerNode.setTextContent(toDoData.getOwner());
             Node nameNode = getNodeWithId(exportDoc, HTML.Tag.TD.toString(), NAME_TAG);
             nameNode.setTextContent(toDoData.getName());
-            
+
             // ADD ALL THE ITEMS
             Node tDataNode = getNodeWithId(exportDoc, "tdata", TABLE_DATA_TAG);
             Iterator<ToDoItemPrototype> itemsIt = toDoData.itemsIterator();
@@ -258,23 +258,24 @@ public class ToDoFiles implements AppFileComponent {
                 addCellToRow(exportDoc, trElement, item.getEndDate().format(DateTimeFormatter.ISO_LOCAL_DATE));
                 addCellToRow(exportDoc, trElement, "" + item.isCompleted());
             }
-            
+
             // CORRECT THE APP EXPORT PAGE
             props.addProperty(APP_EXPORT_PAGE, exportDirPath + fileToExport);
 
             // EXPORT THE WEB PAGE
             saveDocument(exportDoc, props.getProperty(APP_EXPORT_PAGE));
-        }
-        catch(SAXException | ParserConfigurationException
+        } catch (SAXException | ParserConfigurationException
                 | TransformerException exc) {
             throw new IOException("Error loading " + fileToExport);
         }
     }
+
     private void addCellToRow(Document doc, Node rowNode, String text) {
         Element tdElement = doc.createElement(HTML.Tag.TD.toString());
         tdElement.setTextContent(text);
         rowNode.appendChild(tdElement);
     }
+
     private Node getNodeWithId(Document doc, String tagType, String searchID) {
         NodeList testNodes = doc.getElementsByTagName(tagType);
         for (int i = 0; i < testNodes.getLength(); i++) {
@@ -286,6 +287,7 @@ public class ToDoFiles implements AppFileComponent {
         }
         return null;
     }
+
     private void saveDocument(Document doc, String outputFilePath)
             throws TransformerException, TransformerConfigurationException {
         TransformerFactory factory = TransformerFactory.newInstance();
@@ -298,11 +300,11 @@ public class ToDoFiles implements AppFileComponent {
     }
 
     /**
-     * This method is provided to satisfy the compiler, but it
-     * is not used by this application.
+     * This method is provided to satisfy the compiler, but it is not used by
+     * this application.
      */
     @Override
     public void importData(AppDataComponent data, String filePath) throws IOException {
-        
+
     }
 }

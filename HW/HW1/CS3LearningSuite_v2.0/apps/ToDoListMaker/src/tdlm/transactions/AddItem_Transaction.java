@@ -11,7 +11,7 @@ import tdlm.data.ToDoItemPrototype;
 public class AddItem_Transaction implements jTPS_Transaction {
     ToDoData data;
     ToDoItemPrototype itemToAdd;
-    
+
     public AddItem_Transaction(ToDoData initData, ToDoItemPrototype initNewItem) {
         data = initData;
         itemToAdd = initNewItem;
@@ -19,7 +19,7 @@ public class AddItem_Transaction implements jTPS_Transaction {
 
     @Override
     public void doTransaction() {
-        data.addItem(itemToAdd);        
+        data.addItem(itemToAdd);
     }
 
     @Override

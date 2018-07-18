@@ -41,24 +41,27 @@ import static tdlm.workspace.style.TDLStyle.CLASS_TDLM_DIALOG_PROMPT;
 import static tdlm.workspace.style.TDLStyle.CLASS_TDLM_DIALOG_TEXT_FIELD;
 import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
+import static tdlm.data.ToDoItemPrototype.DEFAULT_CATEGORY;
+import static tdlm.data.ToDoItemPrototype.DEFAULT_DESCRIPTION;
 
 /**
  *
  * @author McKillaGorilla
  */
 public class ToDoListItemDialog extends Stage {
+
     ToDoListMakerApp app;
     GridPane gridPane;
-    
-    Label headerLabel = new Label();    
+
+    Label headerLabel = new Label();
     Label categoryLabel = new Label();
     TextField categoryTextField = new TextField();
     Label descriptionLabel = new Label();
     TextField descriptionTextField = new TextField();
     Label startDateLabel = new Label();
-    DatePicker startDatePicker = new DatePicker();    
+    DatePicker startDatePicker = new DatePicker();
     Label endDateLabel = new Label();
-    DatePicker endDatePicker = new DatePicker();  
+    DatePicker endDatePicker = new DatePicker();
     Label assignedToLabel = new Label();
     TextField assignedToTextField = new TextField();
     Label completedLabel = new Label();
@@ -75,7 +78,7 @@ public class ToDoListItemDialog extends Stage {
     EventHandler cancelHandler;
     EventHandler addItemOkHandler;
     EventHandler editItemOkHandler;
-    
+
     public ToDoListItemDialog(ToDoListMakerApp initApp) {
         // KEEP THIS FOR WHEN THE WORK IS ENTERED
         app = initApp;
@@ -88,34 +91,32 @@ public class ToDoListItemDialog extends Stage {
         // NOW PUT THE GRID IN THE SCENE AND THE SCENE IN THE DIALOG
         Scene scene = new Scene(gridPane);
         this.setScene(scene);
-        
+
         // SETUP THE STYLESHEET
         app.getGUIModule().initStylesheet(this);
-        scene.getStylesheets().add(CLASS_TDLM_DIALOG_GRID);                             
-        
+        scene.getStylesheets().add(CLASS_TDLM_DIALOG_GRID);
+
         // MAKE IT MODAL
         this.initOwner(app.getGUIModule().getWindow());
         //this.initName(app.getGUIModule().getWindow());
         this.initModality(Modality.APPLICATION_MODAL);
     }
-       
+
     protected void initGridNode(Node node, Object nodeId, String styleClass, int col, int row, int colSpan, int rowSpan, boolean isLanguageDependent) {
         // GET THE LANGUAGE SETTINGS
         AppLanguageModule languageSettings = app.getLanguageModule();
-        
-        //LOAD LANGUAGES
-        
-        
+
         // TAKE CARE OF THE TEXT
         if (isLanguageDependent) {
-            languageSettings.addLabeledControlProperty(nodeId + "_TEXT", ((Labeled)node).textProperty());
-            ((Labeled)node).setTooltip(new Tooltip(""));
-            languageSettings.addLabeledControlProperty(nodeId + "_TOOLTIP", ((Labeled)node).tooltipProperty().get().textProperty());
+            languageSettings.addLabeledControlProperty(nodeId + "_TEXT", ((Labeled) node).textProperty());
+            ((Labeled) node).setTooltip(new Tooltip(""));
+            languageSettings.addLabeledControlProperty(nodeId + "_TOOLTIP", ((Labeled) node).tooltipProperty().get().textProperty());
         }
-        
+
         // PUT IT IN THE UI
-        if (col >= 0)
+        if (col >= 0) {
             gridPane.add(node, col, row, colSpan, rowSpan);
+        }
 
         // SETUP IT'S STYLE SHEET
         node.getStyleClass().add(styleClass);
@@ -136,7 +137,7 @@ public class ToDoListItemDialog extends Stage {
         initGridNode(assignedToTextField,   null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 5, 1, 1, false);
         initGridNode(completedLabel,        TDLM_ITEM_DIALOG_COMPLETED_PROMPT,      CLASS_TDLM_DIALOG_PROMPT,       0, 6, 2, 1, true);
         initGridNode(completedCheckBox,     TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX,   CLASS_TDLM_DIALOG_CHECK_BOX,    1, 6, 2, 1, false);
-        initGridNode(okCancelPane,          null,                                   CLASS_TDLM_DIALOG_PANE,         0, 7, 3, 1, false);
+        initGridNode(okCancelPane,          null,                                   CLASS_TDLM_DIALOG_PANE,     0, 7, 3, 1, false);
 
         okButton = new Button();
         cancelButton = new Button();
@@ -149,26 +150,26 @@ public class ToDoListItemDialog extends Stage {
         okCancelPane.setAlignment(Pos.CENTER);
 
         AppLanguageModule languageSettings = app.getLanguageModule();
-        languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_OK_BUTTON + "_TEXT",    okButton.textProperty());
-        languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_CANCEL_BUTTON + "_TEXT",    cancelButton.textProperty());
-        
+        languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_OK_BUTTON + "_TEXT", okButton.textProperty());
+        languageSettings.addLabeledControlProperty(TDLM_ITEM_DIALOG_CANCEL_BUTTON + "_TEXT", cancelButton.textProperty());
+
         // AND SETUP THE EVENT HANDLERS
-        categoryTextField.setOnAction(e->{
+        categoryTextField.setOnAction(e -> {
             processCompleteWork();
         });
-        descriptionTextField.setOnAction(e->{
+        descriptionTextField.setOnAction(e -> {
             processCompleteWork();
         });
-        okButton.setOnAction(e->{
+        okButton.setOnAction(e -> {
             processCompleteWork();
         });
-        cancelButton.setOnAction(e->{
+        cancelButton.setOnAction(e -> {
             newItem = null;
             editItem = null;
             this.hide();
-        });   
+        });
     }
-    
+
     private void makeNewItem() {
         String category = categoryTextField.getText();
         String description = descriptionTextField.getText();
@@ -176,10 +177,18 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
+        
+        if(category.equals("")) {
+            category=DEFAULT_CATEGORY;
+        }
+        if(description.equals("")) {
+            description=DEFAULT_DESCRIPTION;
+        }
+        
         newItem = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
         this.hide();
     }
-    
+
     private void processCompleteWork() {
         // GET THE SETTINGS
         String category = categoryTextField.getText();
@@ -189,39 +198,43 @@ public class ToDoListItemDialog extends Stage {
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
         
+        if(category.equals("")) {
+            category=DEFAULT_CATEGORY;
+        }
+        if(description.equals("")) {
+            description=DEFAULT_DESCRIPTION;
+        }
+        
         // IF WE ARE EDITING
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         if (editing) {
             if (data.isValidToDoItemEdit(itemToEdit, category, description, startDate, endDate, completed)) {
                 editItem = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
-            }
-            else {
+            } else {
                 // OPEN MESSAGE DIALOG EXPLAINING WHAT WENT WRONG
                 // @todo
             }
-        }
-        // IF WE ARE ADDING
+        } // IF WE ARE ADDING
         else {
             if (data.isValidNewToDoItem(category, description, startDate, endDate, completed)) {
                 this.makeNewItem();
-            }
-            else {
+            } else {
                 // OPEN MESSAGE DIALOG EXPLAINING WHAT WENT WRONG
                 // @todo
             }
         }
-        
+
         // CLOSE THE DIALOG
         this.hide();
     }
 
-    public void showAddDialog() {        
+    public void showAddDialog() {
         // USE THE TEXT IN THE HEADER FOR ADD
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         String headerText = props.getProperty(TDLM_ITEM_DIALOG_ADD_HEADER_TEXT);
         headerLabel.setText(headerText);
         setTitle(headerText);
-
+        
         // USE THE TEXT IN THE HEADER FOR ADD
         categoryTextField.setText("");
         descriptionTextField.setText("");
@@ -229,11 +242,11 @@ public class ToDoListItemDialog extends Stage {
         endDatePicker.setValue(LocalDate.now());
         assignedToTextField.setText("");
         completedCheckBox.selectedProperty().setValue(false);
-        
+
         // WE ARE ADDING A NEW ONE, NOT EDITING
         editing = false;
         editItem = null;
-        
+
         // AND OPEN THE DIALOG
         showAndWait();
     }
@@ -241,17 +254,17 @@ public class ToDoListItemDialog extends Stage {
     public void showEditDialog(ToDoItemPrototype initItemToEdit) {
         // WE'LL NEED THIS FOR VALIDATION
         itemToEdit = initItemToEdit;
-        
+
         // USE THE TEXT IN THE HEADER FOR EDIT
         PropertiesManager props = PropertiesManager.getPropertiesManager();
         String headerText = props.getProperty(TDLM_ITEM_DIALOG_EDIT_HEADER_TEXT);
         headerLabel.setText(headerText);
         setTitle(headerText);
-        
+
         // WE'LL ONLY PROCEED IF THERE IS A LINE TO EDIT
         editing = true;
         editItem = null;
-        
+
         // USE THE TEXT IN THE HEADER FOR EDIT
         categoryTextField.setText(itemToEdit.getCategory());
         descriptionTextField.setText(itemToEdit.getDescription());
@@ -259,19 +272,17 @@ public class ToDoListItemDialog extends Stage {
         endDatePicker.setValue(itemToEdit.getEndDate());
         assignedToTextField.setText(itemToEdit.getAssignedTo());
         completedCheckBox.selectedProperty().setValue(itemToEdit.isCompleted());
-               
+
         // AND OPEN THE DIALOG
         showAndWait();
     }
-    
+
     public ToDoItemPrototype getNewItem() {
-//        if(newItem!=null){
-//            this.makeNewItem();
-//        }
         return newItem;
     }
-    
+
     public ToDoItemPrototype getEditItem() {
         return editItem;
     }
+    
 }

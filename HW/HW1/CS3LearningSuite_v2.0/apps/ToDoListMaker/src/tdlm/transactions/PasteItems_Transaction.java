@@ -14,10 +14,10 @@ public class PasteItems_Transaction implements jTPS_Transaction {
     ToDoListMakerApp app;
     ArrayList<ToDoItemPrototype> itemsToPaste;
     int pasteIndex;
-    
-    public PasteItems_Transaction(  ToDoListMakerApp initApp, 
-                                    ArrayList<ToDoItemPrototype> initItemsToPaste,
-                                    int initPasteIndex) {
+
+    public PasteItems_Transaction(ToDoListMakerApp initApp,
+            ArrayList<ToDoItemPrototype> initItemsToPaste,
+            int initPasteIndex) {
         app = initApp;
         itemsToPaste = initItemsToPaste;
         pasteIndex = initPasteIndex;
@@ -25,8 +25,8 @@ public class PasteItems_Transaction implements jTPS_Transaction {
 
     @Override
     public void doTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
-        int index = pasteIndex+1;
+        ToDoData data = (ToDoData) app.getDataComponent();
+        int index = pasteIndex + 1;
         for (ToDoItemPrototype itemToPaste : itemsToPaste) {
             data.addItemAt(itemToPaste, index);
             index++;
@@ -35,9 +35,9 @@ public class PasteItems_Transaction implements jTPS_Transaction {
 
     @Override
     public void undoTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         for (ToDoItemPrototype itemToPaste : itemsToPaste) {
             data.removeItem(itemToPaste);
         }
-    }   
+    }
 }

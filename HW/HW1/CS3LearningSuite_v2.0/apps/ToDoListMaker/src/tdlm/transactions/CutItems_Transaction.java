@@ -16,7 +16,7 @@ public class CutItems_Transaction implements jTPS_Transaction {
     ToDoListMakerApp app;
     ArrayList<ToDoItemPrototype> itemsToCut;
     ArrayList<Integer> cutItemLocations;
-    
+
     public CutItems_Transaction(ToDoListMakerApp initApp, ArrayList<ToDoItemPrototype> initItemsToCut) {
         app = initApp;
         itemsToCut = initItemsToCut;
@@ -24,15 +24,15 @@ public class CutItems_Transaction implements jTPS_Transaction {
 
     @Override
     public void doTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         cutItemLocations = data.removeAll(itemsToCut);
         app.getFoolproofModule().updateControls(APP_CLIPBOARD_FOOLPROOF_SETTINGS);
     }
 
     @Override
     public void undoTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         data.addAll(itemsToCut, cutItemLocations);
         app.getFoolproofModule().updateControls(APP_CLIPBOARD_FOOLPROOF_SETTINGS);
-    }   
+    }
 }
