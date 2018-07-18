@@ -88,6 +88,7 @@ public class AppLanguageModule {
             this.languageCodes = new HashMap();
             PropertiesManager props = PropertiesManager.getPropertiesManager();
             ArrayList<String> languageNames = props.getPropertyOptionsList(LANGUAGE_OPTIONS);
+            languages = props.getPropertyOptionsList(LANGUAGE_OPTIONS); 
             
             // ADD EACH LANGUAGE ALONG WITH ITS ABBREVIATION
             for (String languageName : languageNames) {

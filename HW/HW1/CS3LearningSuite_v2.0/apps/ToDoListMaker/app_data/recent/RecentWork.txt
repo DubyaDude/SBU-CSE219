@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Classwork-work/Classwork.tdlm
+=======
+GradingCriteria-work/GradingCriteria.tdlm
+>>>>>>> 2d9cf5dcfad5c81242a8bbfcceb7ee088fa02cb2
 HouseRepairs-work/HouseRepairs.tdlm
 SaveTest-work/SaveTest
 GradingCriteria-work/GradingCriteria.tdlm

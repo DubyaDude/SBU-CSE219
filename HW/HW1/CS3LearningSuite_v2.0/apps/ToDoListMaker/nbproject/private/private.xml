@@ -3,9 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/workspace/controllers/ItemsController.java</file>
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/workspace/dialogs/ToDoListItemDialog.java</file>
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/data/ToDoData.java</file>
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/transactions/MoveUpItem_Transaction.java</file>
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/transactions/EditItem_Transaction.java</file>
+            <file>file:/C:/Users/ushaf/Documents/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/transactions/MoveDownItem_Transaction.java</file>
+=======
             <file>file:/C:/Users/ushaf/Desktop/College/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/workspace/controllers/ItemsController.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/ushaf/Desktop/College/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/workspace/ToDoWorkspace.java</file>
             <file>file:/C:/Users/ushaf/Desktop/College/CSE219/HW/HW1/CS3LearningSuite_v2.0/apps/ToDoListMaker/src/tdlm/workspace/dialogs/ToDoListItemDialog.java</file>
+=======
+>>>>>>> 939f2b375a1773220b735e3db17ba2b8fffdd97d
+>>>>>>> 2d9cf5dcfad5c81242a8bbfcceb7ee088fa02cb2
         </group>
     </open-files>
 </project-private>
