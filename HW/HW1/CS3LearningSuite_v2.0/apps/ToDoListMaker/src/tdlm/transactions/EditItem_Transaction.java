@@ -8,17 +8,17 @@ import tdlm.data.ToDoItemPrototype;
  *
  * @author ushaf
  */
-public class EditItem_Transaction implements jTPS_Transaction{
+public class EditItem_Transaction implements jTPS_Transaction {
     ToDoData data;
     ToDoItemPrototype beforeEditedItem;
     ToDoItemPrototype afterEditedItem;
     int index;
-    
+
     public EditItem_Transaction(ToDoData initData, ToDoItemPrototype editedItem) {
-        data=initData;
-        beforeEditedItem=data.getSelectedItem();
-        afterEditedItem=editedItem;
-        index=data.getItemIndex(beforeEditedItem);
+        data = initData;
+        beforeEditedItem = data.getSelectedItem();
+        afterEditedItem = editedItem;
+        index = data.getItemIndex(beforeEditedItem);
     }
 
     @Override

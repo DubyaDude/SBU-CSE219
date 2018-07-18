@@ -1,17 +1,15 @@
 package tdlm;
 
 /**
- * This class provides the properties that are needed to be loaded for
- * setting up To Do List Maker workspace controls including language-dependent
- * text.
- * 
+ * This class provides the properties that are needed to be loaded for setting
+ * up To Do List Maker workspace controls including language-dependent text.
+ *
  * @author Richard McKenna
  * @version 1.0
  */
 public enum ToDoPropertyType {
-   
+
     /* THESE ARE THE NODES IN OUR APP */
-    
     // THIS IS THE TDLM WORKSPACE PANE
     TDLM_PANE,
     TDLM_TO_DO_LIST_LABEL,
@@ -21,7 +19,6 @@ public enum ToDoPropertyType {
     TDLM_OWNER_PANE,
     TDLM_OWNER_LABEL,
     TDLM_OWNER_TEXT_FIELD,
-
     // THIS IS THE DETAILS PANE
     TDLM_NAME_NAME_PANE,
     TDLM_NAME_PANE,
@@ -43,7 +40,7 @@ public enum ToDoPropertyType {
     TDLM_END_DATE_COLUMN,
     TDLM_ASSIGNED_TO_COLUMN,
     TDLM_COMPLETED_COLUMN,
-
+    
     // FOOLPROOF SETTINGS
     TDLM_FOOLPROOF_SETTINGS,
     
@@ -67,7 +64,6 @@ public enum ToDoPropertyType {
     TDLM_ITEM_DIALOG_OK_BUTTON,
     TDLM_ITEM_DIALOG_CANCEL_BUTTON,
     
-   
     // THIS IS THE EXPORT TEMPLATE FILE NAME
     TDLM_EXPORT_TEMPLATE_FILE_NAME
 }

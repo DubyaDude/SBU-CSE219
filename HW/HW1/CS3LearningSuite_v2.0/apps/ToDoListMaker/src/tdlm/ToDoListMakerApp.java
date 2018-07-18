@@ -12,19 +12,19 @@ import tdlm.clipboard.ToDoClipboard;
 import tdlm.workspace.ToDoWorkspace;
 import static javafx.application.Application.launch;
 
-public class ToDoListMakerApp extends AppTemplate {   
+public class ToDoListMakerApp extends AppTemplate {
     /**
      * This is where program execution begins. Since this is a JavaFX app it
      * will simply call launch, which gets JavaFX rolling, resulting in sending
-     * the properly initialized Stage (i.e. window) to the start method inherited
-     * from AppTemplate, defined in the Desktop Java Framework.
-     * 
-     * @param args Command-line arguments, there are no such settings used
-     * by this application.
+     * the properly initialized Stage (i.e. window) to the start method
+     * inherited from AppTemplate, defined in the Desktop Java Framework.
+     *
+     * @param args Command-line arguments, there are no such settings used by
+     * this application.
      */
     public static void main(String[] args) {
-	Locale.setDefault(Locale.US);
-	launch(args);
+        Locale.setDefault(Locale.US);
+        launch(args);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class ToDoListMakerApp extends AppTemplate {
 
     @Override
     public AppWorkspaceComponent buildWorkspaceComponent(AppTemplate app) {
-        return new ToDoWorkspace(this);        
+        return new ToDoWorkspace(this);
     }
 }

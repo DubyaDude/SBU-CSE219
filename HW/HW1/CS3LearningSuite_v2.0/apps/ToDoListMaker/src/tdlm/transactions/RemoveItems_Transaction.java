@@ -12,10 +12,11 @@ import tdlm.data.ToDoItemPrototype;
  * @author McKillaGorilla
  */
 public class RemoveItems_Transaction implements jTPS_Transaction {
+
     ToDoListMakerApp app;
     ArrayList<ToDoItemPrototype> itemsToRemove;
     ArrayList<Integer> removedItemLocations;
-    
+
     public RemoveItems_Transaction(ToDoListMakerApp initApp, ArrayList<ToDoItemPrototype> initItems) {
         app = initApp;
         itemsToRemove = initItems;
@@ -23,13 +24,13 @@ public class RemoveItems_Transaction implements jTPS_Transaction {
 
     @Override
     public void doTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         removedItemLocations = data.removeAll(itemsToRemove);
     }
 
     @Override
     public void undoTransaction() {
-        ToDoData data = (ToDoData)app.getDataComponent();
+        ToDoData data = (ToDoData) app.getDataComponent();
         data.addAll(itemsToRemove, removedItemLocations);
     }
 }
