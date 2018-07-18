@@ -41,6 +41,8 @@ import static tdlm.workspace.style.TDLStyle.CLASS_TDLM_DIALOG_PROMPT;
 import static tdlm.workspace.style.TDLStyle.CLASS_TDLM_DIALOG_TEXT_FIELD;
 import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
+import static tdlm.data.ToDoItemPrototype.DEFAULT_CATEGORY;
+import static tdlm.data.ToDoItemPrototype.DEFAULT_DESCRIPTION;
 
 /**
  *
@@ -122,20 +124,20 @@ public class ToDoListItemDialog extends Stage {
 
     private void initDialog() {
         // THE NODES ABOVE GO DIRECTLY INSIDE THE GRID
-        initGridNode(headerLabel, TDLM_ITEM_DIALOG_HEADER, CLASS_TDLM_DIALOG_HEADER, 0, 0, 3, 1, true);
-        initGridNode(categoryLabel, TDLM_ITEM_DIALOG_CATEGORY_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 1, 1, 1, true);
-        initGridNode(categoryTextField, null, CLASS_TDLM_DIALOG_TEXT_FIELD, 1, 1, 1, 1, false);
-        initGridNode(descriptionLabel, TDLM_ITEM_DIALOG_DESCRIPTION_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 2, 1, 1, true);
-        initGridNode(descriptionTextField, null, CLASS_TDLM_DIALOG_TEXT_FIELD, 1, 2, 1, 1, false);
-        initGridNode(startDateLabel, TDLM_ITEM_DIALOG_START_DATE_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 3, 1, 1, true);
-        initGridNode(startDatePicker, null, CLASS_TDLM_DIALOG_DATE_PICKER, 1, 3, 1, 1, false);
-        initGridNode(endDateLabel, TDLM_ITEM_DIALOG_END_DATE_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 4, 1, 1, true);
-        initGridNode(endDatePicker, null, CLASS_TDLM_DIALOG_DATE_PICKER, 1, 4, 1, 1, false);
-        initGridNode(assignedToLabel, TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 5, 1, 1, true);
-        initGridNode(assignedToTextField, null, CLASS_TDLM_DIALOG_TEXT_FIELD, 1, 5, 1, 1, false);
-        initGridNode(completedLabel, TDLM_ITEM_DIALOG_COMPLETED_PROMPT, CLASS_TDLM_DIALOG_PROMPT, 0, 6, 2, 1, true);
-        initGridNode(completedCheckBox, TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX, CLASS_TDLM_DIALOG_CHECK_BOX, 1, 6, 2, 1, false);
-        initGridNode(okCancelPane, null, CLASS_TDLM_DIALOG_PANE, 0, 7, 3, 1, false);
+        initGridNode(headerLabel,           TDLM_ITEM_DIALOG_HEADER,                CLASS_TDLM_DIALOG_HEADER,       0, 0, 3, 1, true);
+        initGridNode(categoryLabel,         TDLM_ITEM_DIALOG_CATEGORY_PROMPT,       CLASS_TDLM_DIALOG_PROMPT,       0, 1, 1, 1, true);
+        initGridNode(categoryTextField,     null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 1, 1, 1, false);
+        initGridNode(descriptionLabel,      TDLM_ITEM_DIALOG_DESCRIPTION_PROMPT,    CLASS_TDLM_DIALOG_PROMPT,       0, 2, 1, 1, true);
+        initGridNode(descriptionTextField,  null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 2, 1, 1, false);
+        initGridNode(startDateLabel,        TDLM_ITEM_DIALOG_START_DATE_PROMPT,     CLASS_TDLM_DIALOG_PROMPT,       0, 3, 1, 1, true);
+        initGridNode(startDatePicker,       null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 3, 1, 1, false);
+        initGridNode(endDateLabel,          TDLM_ITEM_DIALOG_END_DATE_PROMPT,       CLASS_TDLM_DIALOG_PROMPT,       0, 4, 1, 1, true);
+        initGridNode(endDatePicker,         null,                                   CLASS_TDLM_DIALOG_DATE_PICKER,  1, 4, 1, 1, false);
+        initGridNode(assignedToLabel,       TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT,    CLASS_TDLM_DIALOG_PROMPT,       0, 5, 1, 1, true);
+        initGridNode(assignedToTextField,   null,                                   CLASS_TDLM_DIALOG_TEXT_FIELD,   1, 5, 1, 1, false);
+        initGridNode(completedLabel,        TDLM_ITEM_DIALOG_COMPLETED_PROMPT,      CLASS_TDLM_DIALOG_PROMPT,       0, 6, 2, 1, true);
+        initGridNode(completedCheckBox,     TDLM_ITEM_DIALOG_COMPLETED_CHECK_BOX,   CLASS_TDLM_DIALOG_CHECK_BOX,    1, 6, 2, 1, false);
+        initGridNode(okCancelPane,          null,                                   CLASS_TDLM_DIALOG_PANE,     0, 7, 3, 1, false);
 
         okButton = new Button();
         cancelButton = new Button();
@@ -175,6 +177,14 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
+        
+        if(category.equals("")) {
+            category=DEFAULT_CATEGORY;
+        }
+        if(description.equals("")) {
+            description=DEFAULT_DESCRIPTION;
+        }
+        
         newItem = new ToDoItemPrototype(category, description, startDate, endDate, assignedTo, completed);
         this.hide();
     }
@@ -187,7 +197,14 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
-
+        
+        if(category.equals("")) {
+            category=DEFAULT_CATEGORY;
+        }
+        if(description.equals("")) {
+            description=DEFAULT_DESCRIPTION;
+        }
+        
         // IF WE ARE EDITING
         ToDoData data = (ToDoData) app.getDataComponent();
         if (editing) {
@@ -217,7 +234,7 @@ public class ToDoListItemDialog extends Stage {
         String headerText = props.getProperty(TDLM_ITEM_DIALOG_ADD_HEADER_TEXT);
         headerLabel.setText(headerText);
         setTitle(headerText);
-
+        
         // USE THE TEXT IN THE HEADER FOR ADD
         categoryTextField.setText("");
         descriptionTextField.setText("");
@@ -267,4 +284,5 @@ public class ToDoListItemDialog extends Stage {
     public ToDoItemPrototype getEditItem() {
         return editItem;
     }
+    
 }
