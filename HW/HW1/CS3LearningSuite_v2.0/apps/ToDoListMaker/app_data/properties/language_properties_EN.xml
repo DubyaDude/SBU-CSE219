@@ -90,9 +90,14 @@
         <property name="TDLM_COMPLETED_COLUMN_TEXT"      value="Completed"></property>
 
         <!-- ERROR DIALOG -->
-        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="Catoergory was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="Description was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DATE_TEXT"            value="Start Date is before Edn Date, Edn Date was changed to Start Date"></property>
+        <property name="TDLM_ERROR_HEADER_TEXT"          value="Warning"></property>
+        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="Catergory was left empty, has been set to '?'"></property>
+        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="Description was left empty, has been set to '?'"></property>
+        <property name="TDLM_ERROR_DATE_TEXT"            value="Start Date is after End Date, End Date has been set to the Start Date."></property>
+        <property name="TDLM_ERROR_END_DATE_TEXT"        value="End Date was left empty, End Date has been set to Start Date."></property>
+        <property name="TDLM_ERROR_START_DATE_TEXT"      value="Start Date was left empty, Start Date has been set to End Date."></property>
+        <property name="TDLM_ERROR_BOTH_DATES_TEXT"      value="End Date and Start Date was left empty, They were set to today's date."></property>
+
 
         <!-- LANGUAGE-DEPENDENT TEXT FOR ITEM DIALOG CONTROLS -->
         <property name="TDLM_ITEM_DIALOG_HEADER_TEXT"               value="Add/Edit Items"></property>

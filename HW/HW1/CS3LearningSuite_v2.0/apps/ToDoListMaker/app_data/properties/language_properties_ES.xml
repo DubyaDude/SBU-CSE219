@@ -90,9 +90,13 @@
         <property name="TDLM_COMPLETED_COLUMN_TEXT"      value="Completado"></property>
 
         <!-- ERROR DIALOG -->
-        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="Catoergory was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="Description was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DATE_TEXT"            value="Start Date is before Edn Date, Edn Date was changed to Start Date"></property>
+        <property name="TDLM_ERROR_HEADER_TEXT"          value="Advertencia"></property>
+        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="La categoría se dejó vacía, se ha establecido en '?'"></property>
+        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="La descripción se dejó en blanco, se ha configurado en '?'"></property>
+        <property name="TDLM_ERROR_DATE_TEXT"            value="La fecha de inicio es posterior a la fecha de finalización, la fecha de finalización se ha establecido en la fecha de inicio."></property>
+        <property name="TDLM_ERROR_END_DATE_TEXT"        value="La fecha de finalización se dejó en blanco, la fecha de finalización se estableció en la fecha de inicio."></property>
+        <property name="TDLM_ERROR_START_DATE_TEXT"      value="La Fecha de inicio se dejó en blanco, la Fecha de inicio se configuró en Fecha de finalización."></property>
+        <property name="TDLM_ERROR_BOTH_DATES_TEXT"      value="La fecha de finalización y la fecha de inicio se dejaron en blanco. Se establecieron en la fecha de hoy."></property>
 
         <!-- LANGUAGE-DEPENDENT TEXT FOR ITEM DIALOG CONTROLS -->
         <property name="TDLM_ITEM_DIALOG_HEADER_TEXT"               value="Agregar / Editar elementos"></property>
@@ -104,7 +108,7 @@
         <property name="TDLM_ITEM_DIALOG_END_DATE_PROMPT_TEXT"      value="Fecha de finalización:"></property>
         <property name="TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT_TEXT"   value="Asignado a:"></property>
         <property name="TDLM_ITEM_DIALOG_COMPLETED_PROMPT_TEXT"     value="Completado:"></property>
-        <property name="TDLM_ITEM_DIALOG_OK_BUTTON_TEXT"            value="OK"></property>
+        <property name="TDLM_ITEM_DIALOG_OK_BUTTON_TEXT"            value="Está Bien "></property>
         <property name="TDLM_ITEM_DIALOG_CANCEL_BUTTON_TEXT"        value="Cancelar"></property>
 
         <!-- TO SWITCH BACK TO ANOTHER LANGUAGE -->

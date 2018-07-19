@@ -20,7 +20,7 @@ public class AppFileModule {
     AppTemplate app;
     
     // WE WANT TO KEEP TRACK OF WHEN SOMETHING HAS NOT BEEN SAVED
-    boolean saved;
+    public static boolean saved;
     
     // THIS IS THE FILE FOR THE WORK CURRENTLY BEING WORKED ON
     File workFile;
@@ -83,7 +83,7 @@ public class AppFileModule {
         app.getWorkspaceComponent().activate();
         
         // WORK IS NOT SAVED
-        saved = false;
+        saved = true;
         workFile = null;
 
         // SET THE WINDOW TITLE

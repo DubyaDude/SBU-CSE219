@@ -11,6 +11,7 @@ import static tdlm.ToDoPropertyType.TDLM_OWNER_TEXT_FIELD;
 import static tdlm.ToDoPropertyType.TDLM_NAME_TEXT_FIELD;
 import static tdlm.ToDoPropertyType.TDLM_REMOVE_ITEM_BUTTON;
 import tdlm.data.ToDoData;
+import djf.modules.AppFileModule;
 
 /**
  *
@@ -27,7 +28,10 @@ public class ToDoSelectionFoolproofDesign implements FoolproofDesign {
     @Override
     public void updateControls() {
         AppGUIModule gui = app.getGUIModule();
-
+        //AppFileModule.saved = false;
+        if(AppFileModule.saved && app.getTPS().getUndoSize()>0){
+            AppFileModule.saved=false;
+        }
         // CHECK AND SEE IF A TABLE ITEM IS SELECTED
         ToDoData data = (ToDoData) app.getDataComponent();
         boolean itemIsSelected = data.isItemSelected();

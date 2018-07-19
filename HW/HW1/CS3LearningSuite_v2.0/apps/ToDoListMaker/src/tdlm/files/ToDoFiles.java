@@ -50,6 +50,7 @@ import properties_manager.PropertiesManager;
 import static tdlm.ToDoPropertyType.TDLM_EXPORT_TEMPLATE_FILE_NAME;
 import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
+import djf.modules.AppFileModule;
 
 /**
  *
@@ -134,6 +135,7 @@ public class ToDoFiles implements AppFileComponent {
         PrintWriter pw = new PrintWriter(filePath);
         pw.write(prettyPrinted);
         pw.close();
+        AppFileModule.saved = true;
     }
 
     /**
@@ -171,6 +173,7 @@ public class ToDoFiles implements AppFileComponent {
             ToDoItemPrototype item = loadItem(jsonItem);
             toDoData.addItem(item);
         }
+        AppFileModule.saved = true;
     }
 
     public double getDataAsDouble(JsonObject json, String dataName) {

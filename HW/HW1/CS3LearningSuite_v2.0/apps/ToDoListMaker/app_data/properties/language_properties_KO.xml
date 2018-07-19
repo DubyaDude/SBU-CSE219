@@ -90,9 +90,13 @@
         <property name="TDLM_COMPLETED_COLUMN_TEXT"      value="완료"></property>
 
         <!-- ERROR DIALOG -->
-        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="Catoergory was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="Description was left empty, it was changed to ?"></property>
-        <property name="TDLM_ERROR_DATE_TEXT"            value="Start Date is before Edn Date, Edn Date was changed to Start Date"></property>
+        <property name="TDLM_ERROR_HEADER_TEXT"          value="경고"></property>
+        <property name="TDLM_ERROR_CATEGORY_TEXT"        value="카타고리가 비어있었습니다. 그것은로 바뀌었다 '?'"></property>
+        <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="설명은 비어 있습니다. 그것은로 바뀌었다 '?'"></property>
+        <property name="TDLM_ERROR_DATE_TEXT"            value="시작 날짜가 종료 날짜 전이며 종료 날짜가 시작 날짜로 설정되어 있습니다."></property>
+        <property name="TDLM_ERROR_END_DATE_TEXT"        value="종료 날짜가 비어 있고 종료 날짜가 시작 날짜로 설정되었습니다."></property>
+        <property name="TDLM_ERROR_START_DATE_TEXT"      value="시작 날짜가 비어 있고 시작 날짜가 종료 날짜로 설정되었습니다."></property>
+        <property name="TDLM_ERROR_BOTH_DATES_TEXT"      value="종료 날짜와 시작 날짜는 비워 두었습니다. 오늘 날짜로 설정되었습니다."></property>
 
         <!-- LANGUAGE-DEPENDENT TEXT FOR ITEM DIALOG CONTROLS -->
         <property name="TDLM_ITEM_DIALOG_HEADER_TEXT"               value="항목 추가 / 편집"></property>
@@ -104,7 +108,7 @@
         <property name="TDLM_ITEM_DIALOG_END_DATE_PROMPT_TEXT"      value="종료 날짜 :"></property>
         <property name="TDLM_ITEM_DIALOG_ASSIGNED_TO_PROMPT_TEXT"   value="할당 대상:"></property>
         <property name="TDLM_ITEM_DIALOG_COMPLETED_PROMPT_TEXT"     value="완료:"></property>
-        <property name="TDLM_ITEM_DIALOG_OK_BUTTON_TEXT"            value="OK"></property>
+        <property name="TDLM_ITEM_DIALOG_OK_BUTTON_TEXT"            value="승인"></property>
         <property name="TDLM_ITEM_DIALOG_CANCEL_BUTTON_TEXT"        value="취소"></property>
         
         <!-- TO SWITCH BACK TO ANOTHER LANGUAGE -->

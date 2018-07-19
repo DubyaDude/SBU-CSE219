@@ -24,6 +24,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import properties_manager.PropertiesManager;
+import djf.modules.AppFileModule;
 
 /**
  * @author McKillaGorilla
@@ -113,6 +114,7 @@ public class AppDialogsFacade {
     public static void showStackTraceDialog(Stage parent, Exception exception,
             Object appErrorTitleProperty,
             Object appErrorContentProperty) {
+        AppFileModule.saved=true;
         // FIRST MAKE THE DIALOG
         Alert stackTraceDialog = new Alert(Alert.AlertType.ERROR);
         stackTraceDialog.initOwner(parent);

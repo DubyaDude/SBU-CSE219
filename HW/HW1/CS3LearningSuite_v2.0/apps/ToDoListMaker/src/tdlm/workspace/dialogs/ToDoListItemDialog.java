@@ -47,9 +47,14 @@ import tdlm.data.ToDoData;
 import tdlm.data.ToDoItemPrototype;
 import static tdlm.data.ToDoItemPrototype.DEFAULT_CATEGORY;
 import static tdlm.data.ToDoItemPrototype.DEFAULT_DESCRIPTION;
+import static tdlm.data.ToDoItemPrototype.DEFAULT_DATE;
 import static tdlm.ToDoPropertyType.TDLM_ERROR_CATEGORY_TEXT;
 import static tdlm.ToDoPropertyType.TDLM_ERROR_DESCRIPTION_TEXT;
 import static tdlm.ToDoPropertyType.TDLM_ERROR_DATE_TEXT;
+import static tdlm.ToDoPropertyType.TDLM_ERROR_HEADER_TEXT;
+import static tdlm.ToDoPropertyType.TDLM_ERROR_END_DATE_TEXT;
+import static tdlm.ToDoPropertyType.TDLM_ERROR_START_DATE_TEXT;
+import static tdlm.ToDoPropertyType.TDLM_ERROR_BOTH_DATES_TEXT;
 
 /**
  *
@@ -185,13 +190,23 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
-        Component errorDialog = null;
-
+        
+        // ERRORS
         if (category.equals("")) {
             category = DEFAULT_CATEGORY;
         }
         if (description.equals("")) {
             description = DEFAULT_DESCRIPTION;
+        }
+        if(startDate==null && endDate==null){
+            startDate = DEFAULT_DATE;
+            endDate = DEFAULT_DATE;
+        }
+        else if (startDate==null){
+            startDate = endDate;
+        }
+        else if (endDate==null){
+            endDate = startDate;
         }
         if (endDate.isBefore(startDate)) {
             endDate = startDate;
@@ -209,30 +224,34 @@ public class ToDoListItemDialog extends Stage {
         LocalDate endDate = endDatePicker.getValue();
         String assignedTo = assignedToTextField.getText();
         boolean completed = completedCheckBox.selectedProperty().getValue();
-        
-        // HARD CODED ERRORS (COULDN NOT GET TDLM_ERROR_CATEGORY_TEXT... WORKING)
-        // ShowMessage Dialog message area doesn't sohw korean characters, but headers do (weird). Just defaulted it to english if korean is selected
-        //UIManager.put("OptionPane.messageFont", new Font("Helvetica", Font.PLAIN, 14)); -Attempted to chage font, also didn't work
-        String currentLanguage=app.getLanguageModule().getCurrentLanguage();
+
+        // ERRORS
         if (category.equals("")) {
             category = DEFAULT_CATEGORY;
-            if(currentLanguage.equals("Spanish")){JOptionPane.showMessageDialog(null, "La categoría se dejó vacía, se ha establecido en '?'", "Advertencia", 2);}
-            //else if(currentLanguage.equals("Korean")){JOptionPane.showMessageDialog(null, "카타고리가 비어있었습니다. 그것은로 바뀌었다 '?'.", "경고", 2);}
-            else {JOptionPane.showMessageDialog(null, "Catergory was left empty, has been set to '?'.", "Warning", 2);}
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_CATEGORY_TEXT);
         }
         if (description.equals("")) {
             description = DEFAULT_DESCRIPTION;
-            if(currentLanguage.equals("Spanish")){JOptionPane.showMessageDialog(null, "La descripción se dejó en blanco, se ha configurado en '?'.", "Advertencia", 2);}
-            //else if(currentLanguage.equals("Korean")){JOptionPane.showMessageDialog(null, "설명은 비어 있습니다. 그것은로 바뀌었다 '?'.", "경고", 2);}
-            else {JOptionPane.showMessageDialog(null, "Description was left empty, has been set to '?'.", "Warning", 2);}
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_DESCRIPTION_TEXT);
+        }
+        if(startDate==null && endDate==null){
+            startDate = DEFAULT_DATE;
+            endDate = DEFAULT_DATE;
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_BOTH_DATES_TEXT);
+        }
+        else if (startDate==null){
+            startDate = endDate;
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_START_DATE_TEXT);
+        }
+        else if (endDate==null){
+            endDate = startDate;
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_END_DATE_TEXT);
         }
         if (endDate.isBefore(startDate)) {
             endDate = startDate;
-            if(currentLanguage.equals("Spanish")){JOptionPane.showMessageDialog(null, "La fecha de inicio es anterior a la fecha de finalización, la fecha de finalización se ha establecido en la fecha de inicio.", "Advertencia", 2);}
-            //else if(currentLanguage.equals("Korean")){JOptionPane.showMessageDialog(null, "시작 날짜가 종료 날짜 전이며 종료 날짜가 시작 날짜로 설정되어 있습니다.", "경고", 2);}
-            else {JOptionPane.showMessageDialog(null, "Start Date is before End Date, Edn Date has been set to the Start Date.", "Warning", 2);}
+            djf.ui.dialogs.AppDialogsFacade.showMessageDialog(app.getGUIModule().getWindow(), TDLM_ERROR_HEADER_TEXT, TDLM_ERROR_DATE_TEXT);
         }
-        
+
         // IF WE ARE EDITING
         ToDoData data = (ToDoData) app.getDataComponent();
         if (editing) {
