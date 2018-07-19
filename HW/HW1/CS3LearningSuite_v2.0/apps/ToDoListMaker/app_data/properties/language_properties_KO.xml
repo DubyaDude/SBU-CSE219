@@ -93,7 +93,7 @@
         <property name="TDLM_ERROR_HEADER_TEXT"          value="경고"></property>
         <property name="TDLM_ERROR_CATEGORY_TEXT"        value="카타고리가 비어있었습니다. 그것은로 바뀌었다 '?'"></property>
         <property name="TDLM_ERROR_DESCRIPTION_TEXT"     value="설명은 비어 있습니다. 그것은로 바뀌었다 '?'"></property>
-        <property name="TDLM_ERROR_DATE_TEXT"            value="시작 날짜가 종료 날짜 전이며 종료 날짜가 시작 날짜로 설정되어 있습니다."></property>
+        <property name="TDLM_ERROR_DATE_TEXT"            value="시작 날짜가 종료 날짜 이후이고 종료 날짜가 시작 날짜로 설정되어 있습니다."></property>
         <property name="TDLM_ERROR_END_DATE_TEXT"        value="종료 날짜가 비어 있고 종료 날짜가 시작 날짜로 설정되었습니다."></property>
         <property name="TDLM_ERROR_START_DATE_TEXT"      value="시작 날짜가 비어 있고 시작 날짜가 종료 날짜로 설정되었습니다."></property>
         <property name="TDLM_ERROR_BOTH_DATES_TEXT"      value="종료 날짜와 시작 날짜는 비워 두었습니다. 오늘 날짜로 설정되었습니다."></property>
